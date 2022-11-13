@@ -1,0 +1,60 @@
+.button {
+  --fontFamily: inherit;
+  --fontSize: 14px;
+  --lineHeight: 1.5;
+  --fontStyle: normal;
+  --fontWeight: 400;
+  --textColor: #333;
+  --backgroundColor:  transparent;
+  --padding: 0;
+  --opacity: initial;
+
+  font-family: var(--fontFamily);
+  font-size: var(--fontSize);
+  font-style: var(--fontStyle);
+  font-weight: var(--fontWeight);
+  color: var(--textColor);
+  opacity: var(--opacity);
+  padding: var(--padding);
+  border: none;
+  background: none;
+  background-color: var(--backgroundColor);
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.button__text {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+
+  color: #301A6B;
+}
+
+.button_size_small{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  
+  background: url('../../assets/Flag_of_Russia.svg.webp');
+  border: 1px solid #000000;
+  border-radius: 50px;
+}
+.button_size_medium {
+  justify-content: center;
+  align-items: center;
+  padding: 10px 16px;
+
+  position: absolute;
+  width: 136px;
+  height: 60px;
+
+  background: #FFFFFF;
+  box-shadow: 0px 6px 6px #301A6B;
+  border-radius: 15px;
+}
