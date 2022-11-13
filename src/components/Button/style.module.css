@@ -8,7 +8,7 @@
   --backgroundColor:  transparent;
   --padding: 0;
   --opacity: initial;
-
+  position: relative;
   font-family: var(--fontFamily);
   font-size: var(--fontSize);
   font-style: var(--fontStyle);
@@ -35,6 +35,19 @@
 
   color: #301A6B;
 }
+/* .authBlock{
+  display: inline-flex;
+    justify-content: space-between;
+    width: 66%;
+} */
+/* .button_type_play {
+  margin-left: 10px;
+  
+}
+
+.button_type_rooms {
+  margin-right: 10px
+} */
 
 .button_size_small{
   position: absolute;
@@ -49,8 +62,6 @@
   justify-content: center;
   align-items: center;
   padding: 10px 16px;
-
-  position: absolute;
   width: 136px;
   height: 60px;
 

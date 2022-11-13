@@ -1,13 +1,14 @@
-import { Button } from "./components/Button/Button"
-import { ChangeLang } from "./components/ChangeLang/ChangeLang"
 
-function App(className) {
+import { Auth } from './pages/Auth/Auth'
+
+// import { Rooms } from './pages/Rooms/Rooms'
+// import { Profile } from './pages/Profile/Profile'
+function App() {
   return (
-    <>
-    <Button className={className} text = {'ИГРАТЬ'} size = 'medium'> </Button> 
-    <Button className={className} text = {'КОМНАТЫ'} size = 'medium'></Button> 
-    <ChangeLang className={className} ></ChangeLang>
-    </>
+    <div className="App">
+      <Auth/>
+    </div>
+
   )
 }
 

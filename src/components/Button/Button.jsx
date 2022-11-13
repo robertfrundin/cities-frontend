@@ -11,30 +11,12 @@ export const Button = ({
   handlerClick
 }) => {
 
-  // let handlerClick = () => {}
-  // switch (type) {
-  //   case 'startRandomGame': {
-
-  //     handlerClick = () => {
-        
-  //     }
-  //     break
-  //   };
-
-  //   case 'goToLobby': {
-  //     handlerClick = () => {
-        
-  //     }
-  //     break
-  //   };
-
-  // }
-
   return (
     <button
       className={classnames(
         styles.button,
         styles[`button_size_${size}`],
+        styles[`button_type_${type}`],
         className
       )}
       onClick={handlerClick}
