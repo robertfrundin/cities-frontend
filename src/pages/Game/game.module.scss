@@ -1,6 +1,5 @@
 .wrap {
-  background-color: #4a218e;
-  opacity: 0.7;
+  background: rgba(74, 33, 142, 0.7);
   width: 100%;
   height: 100%;
   padding: 40px 55px;
@@ -14,10 +13,11 @@
 }
 .players {
   width: 28%;
-  background-color: #4a218e;
-  opacity: 0.2;
+  background: rgba(74, 33, 142, 0.2);
   height: 100%;
   flex-shrink: 0;
+  position: relative;
+  border-radius: 50px 15px 15px 15px;
 }
 .board {
   max-width: 100%;
@@ -87,4 +87,46 @@
   .red__letter {
     color: #ee6a6a;
   }
+}
+.copy {
+  position: absolute;
+  bottom: 75px;
+  left: -12%;
+  & span {
+    font-size: 36px;
+    font-weight: 500;
+    color: #000;
+    position: relative;
+    top: -7px;
+    left: 5px;
+  }
+}
+.close {
+  border: 0;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  top: 60px;
+  right: 80px;
+  background: 0;
+  font-size: 36px;
+  cursor: pointer;
+}
+.close::after {
+  height: 4px;
+  width: 40px;
+  content: '';
+  position: absolute;
+  background: #000;
+  right: 3px;
+  transform: rotate(-45deg);
+}
+.close::before {
+  right: 3px;
+  height: 4px;
+  width: 40px;
+  content: '';
+  position: absolute;
+  background: #000;
+  transform: rotate(45deg);
 }
