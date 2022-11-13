@@ -1,0 +1,90 @@
+.wrap {
+  background-color: #4a218e;
+  opacity: 0.7;
+  width: 100%;
+  height: 100%;
+  padding: 40px 55px;
+}
+.content {
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  border-radius: 50px 15px 15px 15px;
+  display: flex;
+}
+.players {
+  width: 28%;
+  background-color: #4a218e;
+  opacity: 0.2;
+  height: 100%;
+  flex-shrink: 0;
+}
+.board {
+  max-width: 100%;
+  height: 100%;
+  flex-grow: 1;
+  padding: 95px 15% 260px 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  & > * {
+    white-space: nowrap;
+    text-align: center;
+    width: 100%;
+  }
+
+  & h2 {
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  & h1 {
+    font-size: 96px;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  & button {
+    height: 95px;
+    font-size: 48px;
+    font-weight: 600;
+    border-radius: 24px;
+    background-color: #4a218e;
+    opacity: 0.9;
+    color: #fff;
+    cursor: pointer;
+    text-shadow: -0 -2px 1px #000000, 0 -2px 1px #000000, -0 2px 1px #000000, 0 2px 1px #000000, -2px -0 1px #000000, 2px -0 1px #000000, -2px 0 1px #000000, 2px 0 1px #000000, -1px -2px 1px #000000, 1px -2px 1px #000000, -1px 2px 1px #000000,
+      1px 2px 1px #000000, -2px -1px 1px #000000, 2px -1px 1px #000000, -2px 1px 1px #000000, 2px 1px 1px #000000, -2px -2px 1px #000000, 2px -2px 1px #000000, -2px 2px 1px #000000, 2px 2px 1px #000000, -2px -2px 1px #000000, 2px -2px 1px #000000,
+      -2px 2px 1px #000000, 2px 2px 1px #000000;
+  }
+  & input {
+    height: 110px;
+    border-radius: 3px;
+
+    font-size: 64px;
+    animation: blink 3s linear infinite;
+    @keyframes blink {
+      0% {
+        border: 2px dashed #ccc;
+      }
+      50% {
+        border: 2px dashed rgb(128, 127, 127);
+      }
+      100% {
+        border: 2px dashed #000;
+      }
+    }
+  }
+  & input:focus {
+    border: 3px solid black;
+  }
+  & input::first-letter {
+    color: #ee6a6a;
+  }
+  .red__letter {
+    color: #ee6a6a;
+  }
+}
