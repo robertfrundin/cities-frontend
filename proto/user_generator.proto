@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package towns;
+
+service UserGeneratorService {
+    rpc GenerateUser(UserGeneratorRequest) returns(UserGeneratorResponse) {}
+}
+
+message UserGeneratorRequest {
+
+}
+
+message UserGeneratorResponse {
+    string user_id = 1;
+    string user_name = 2;
+}
