@@ -1,0 +1,70 @@
+.room {
+    height: 400px;
+    width: 400px;
+    background-color: white;
+    margin: 22.5px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    
+
+}
+
+.avatar {
+    max-width: 100px;
+    width: 100%;
+    
+}
+
+.roomInfo {
+   display: flex;
+   justify-content: space-around;
+   width: 100%;
+
+   & > img {
+    // background: url("../../assets/Flag_of_Russia.svg.webp") ;
+    position: relative;
+    width: 70px;
+    height: 70px;
+    margin: 0px;
+    position: relative;
+    border-radius: 50%;
+    align-self: center;
+    border: 1px;
+    }
+}
+
+.roomId {
+    font-size: 36px;
+    font-weight: 600;
+    
+}
+
+.playerInfo{
+    display: flex;
+    flex-direction: column;
+}
+.playerInfoFull{
+    color: red;
+    filter: invert(19%) sepia(97%) saturate(6931%) hue-rotate(6deg) brightness(105%) contrast(123%);
+}
+.playerLogo {
+    width: 100%;
+    height: 42.86px;
+
+}
+.playerCount {
+    margin: 0 auto;
+    font-size: 24px;
+}
+
+.joinButton {
+    background: url("../../assets/join.svg")  no-repeat;
+    width: 71px;
+    height: 70px;
+  
+    border: 0;
+}
+

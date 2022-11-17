@@ -5,9 +5,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   display: flex;
   width: 100%;
+
+  background-color: rgb(74, 33, 142, 0.7);
 }
 body, .App{
-  height: 100vh;
+  /* height: 100vh; */
   width: 100vw;
 }
 * {
