@@ -1,13 +1,14 @@
-import { Game } from './pages/Game/Game'
+
+import { Auth } from './pages/Auth/Auth'
+
 // import { Rooms } from './pages/Rooms/Rooms'
 // import { Profile } from './pages/Profile/Profile'
 function App() {
   return (
     <div className="App">
-      <Game></Game>
-      {/* <Rooms></Rooms>
-      <Profile></Profile> */}
+      <Auth/>
     </div>
+
   )
 }
 

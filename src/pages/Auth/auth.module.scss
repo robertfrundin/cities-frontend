@@ -1,0 +1,68 @@
+.wrap {
+  background-color: #4a218e;
+  opacity: 0.7;
+  width: 100%;
+  height: 100%;
+ padding: 50px;
+
+}
+.content {
+  height: 650px;
+  width: 100%;
+  background: rgba(217, 217, 217, 0.26);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+.selectLogin {
+  width: 100%;
+}
+
+.authBlock{
+  display: inline-flex;
+    justify-content: space-between;
+    width: 373px;
+}
+.input {
+  width: 373px;
+  height: 60px;
+  padding: 10px;
+  border-radius: 15px;
+}
+.guest, .login {
+  width: 50%;
+  height: 70px;
+  
+  border-radius: 1%;
+  border: 0;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 39px;
+  /* identical to box height */
+
+  text-align: center;
+
+  color: #FFFFFF;
+
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+
+}
+.guest {
+  background: transparent;
+  margin-left: 0px;
+}
+.login {
+  background: rgba(217, 217, 217, 0.26);
+  margin-right: 0px;
+}
+
+  .input:focus{
+    outline: none;
+  }
+
