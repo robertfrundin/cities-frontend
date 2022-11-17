@@ -14,3 +14,7 @@ body,
   margin: 0;
   padding: 0;
 }
+.App {
+  background: rgba(74, 33, 142, 0.7);
+  padding: 40px 55px;
+}
