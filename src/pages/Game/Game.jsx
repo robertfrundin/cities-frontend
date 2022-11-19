@@ -14,7 +14,8 @@ export const Game = () => {
         </ul>
       </div>
       <div className={styles.board}>
-        <FinishedGame></FinishedGame>
+        {/* <FinishedGame></FinishedGame> */}
+        <ActiveGame/>
       </div>
     </main>
   )

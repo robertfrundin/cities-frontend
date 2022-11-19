@@ -1,0 +1,52 @@
+.progressbar {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+}
+
+.progressPercent {
+    font-weight: 600;
+    font-size: 64px;
+    animation: blink 3s linear infinite;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color:#eee;
+    text-shadow: -1px 0 #555, 0 1px #555, 1px 0 #555, 0 -1px #555;
+}
+
+.progressColor {
+    background-color: rgb(74, 33, 142);
+    
+        background-size: 30px 30px;
+        background-image: linear-gradient(135deg, rgba(255, 255, 255, .15) 25%,
+                          transparent 25%,
+                          transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%,
+                          transparent 75%, transparent);
+        animation: animate-stripes 3s linear infinite;
+    }        
+    @keyframes animate-stripes {
+        0% {
+        background-position: 0 0;
+        }
+        100% {
+        background-position: 60px 0;
+        }
+}
+    
+.btn{
+    height: 95px;
+    font-size: 48px;
+    font-weight: 600;
+    border-radius: 24px;
+    background-color: white;
+    opacity: 0.9;
+    color: #fff;
+    cursor: pointer;
+    text-shadow: -0 -2px 1px #000000, 0 -2px 1px #000000, -0 2px 1px #000000, 0 2px 1px #000000, -2px -0 1px #000000, 2px -0 1px #000000, -2px 0 1px #000000, 2px 0 1px #000000, -1px -2px 1px #000000, 1px -2px 1px #000000, -1px 2px 1px #000000,
+      1px 2px 1px #000000, -2px -1px 1px #000000, 2px -1px 1px #000000, -2px 1px 1px #000000, 2px 1px 1px #000000, -2px -2px 1px #000000, 2px -2px 1px #000000, -2px 2px 1px #000000, 2px 2px 1px #000000, -2px -2px 1px #000000, 2px -2px 1px #000000,
+      -2px 2px 1px #000000, 2px 2px 1px #000000;
+}
