@@ -1,10 +1,20 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './index.css'
-import App from './App'
-const root = ReactDOM.createRoot(document.getElementById('root'))
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Auth } from "./pages/Auth/Auth";
+import { Rooms } from "./pages/Rooms/Rooms";
+import { Game } from "./pages/Game/Game";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-)
+  <BrowserRouter>
+    <Routes>
+      <Route index element={<Auth />}></Route>
+      <Route path="auth" element={<Auth />}></Route>
+      <Route path="rooms" element={<Rooms />}></Route>
+      <Route path="game/:gameid" element={<Game />}></Route>
+    </Routes>
+  </BrowserRouter>
+);
