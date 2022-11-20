@@ -8,7 +8,7 @@
 
 .progressPercent {
     font-weight: 600;
-    font-size: 5vw;
+    font-size: 4vw;
     animation: blink 3s linear infinite;
     position: absolute;
     left: 50%;

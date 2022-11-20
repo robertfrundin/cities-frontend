@@ -29,7 +29,7 @@
   font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
-  font-size: 20px;
+  /* font-size: 2vmin; */
   line-height: 24px;
   text-align: center;
 
@@ -62,8 +62,8 @@
   justify-content: center;
   align-items: center;
   padding: 10px 16px;
-  width: 136px;
-  height: 60px;
+  width: 27vmin;
+  /* height: 14vmin; */
 
   background: #FFFFFF;
   box-shadow: 0px 6px 6px #301A6B;

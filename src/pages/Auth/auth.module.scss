@@ -4,7 +4,7 @@
   padding: 50px;
 }
 .content {
-  height: 650px;
+  max-height: 150vmin;
   margin: auto 20%;
   background: rgba(217, 217, 217, 0.26);
   border-radius: 15px;
@@ -22,7 +22,7 @@
 .authBlock{
   display: inline-flex;
   justify-content: space-between;
-  width: 373px;
+  width: 80%;
 }
 .input {
   max-width: 373px;
@@ -60,6 +60,7 @@
 
 .avatar {
   max-width: 260px;
+  margin: 10vmin auto;
 }
 
 .scrollingImage {
@@ -75,7 +76,7 @@
   }
   .authBlock{
     display: inline-flex;
-    justify-content: space-evenly;
-    
+    justify-content: space-between;
+    width: 80%;
   }
 }
