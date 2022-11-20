@@ -4,12 +4,12 @@ import styles from './player.module.scss'
 export const Player = () => {
   return (
     <li className={styles.wrap}>
-      <img src={zebra} alt="" />
-      <div>
+      <img src={zebra} alt="" className={styles.avatar}/>
+      <div className={styles.playerinfo}>
         <p>don_nagibon_2012</p>
         <span>320</span>
       </div>
-      <img src={medal} alt="" />
+      <img src={medal} alt="" className={styles.placeimg}/>
     </li>
   )
 }

@@ -2,6 +2,8 @@ import { Button } from "../../components/Button/Button"
 import { ChangeLang } from "../../components/ChangeLang/ChangeLang"
 import AuthPhoto from '../../assets/hippopotamus-svgrepo-com.svg'
 import styles from './auth.module.scss'
+import city from '../../assets/city.png'
+
 export const Auth = () => {
   return (
     <>
@@ -17,8 +19,8 @@ export const Auth = () => {
           <Button text = {'ИГРАТЬ'} type = 'play' size = 'medium'> </Button> 
           <ChangeLang/>
           <Button text = {'КОМНАТЫ'} type = 'rooms' size = 'medium'></Button> 
-        </div>
-        
+        </div>   
+        {/* <div className = {styles.scrollingImage}></div> */}
       </main>
     </div>
     
