@@ -4,19 +4,21 @@ import { ActiveGame } from './parts/ActiveGame/ActiveGame'
 import { FinishedGame } from './parts/FinishedGame/FinishedGame'
 export const Game = () => {
   return (
-    <main className={styles.content}>
-      <div className={styles.players}>
-        <ul>
-          <Player></Player>
-          <Player></Player>
-          <Player></Player>
-          <Player></Player>
-        </ul>
-      </div>
-      <div className={styles.board}>
-        {/* <FinishedGame></FinishedGame> */}
-        <ActiveGame/>
-      </div>
-    </main>
+    <div className={styles.wrap}>
+      <main className={styles.content}>
+        <div className={styles.players}>
+          <ul>
+            <Player></Player>
+            <Player></Player>
+            <Player></Player>
+            <Player></Player>
+          </ul>
+        </div>
+        <div className={styles.board}>
+          {/* <FinishedGame></FinishedGame> */}
+          <ActiveGame/>
+        </div>
+      </main>
+     </div>
   )
 }

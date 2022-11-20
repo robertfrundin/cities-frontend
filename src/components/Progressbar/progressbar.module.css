@@ -8,7 +8,7 @@
 
 .progressPercent {
     font-weight: 600;
-    font-size: 64px;
+    font-size: 5vw;
     animation: blink 3s linear infinite;
     position: absolute;
     left: 50%;
@@ -19,14 +19,13 @@
 }
 
 .progressColor {
-    background-color: rgb(74, 33, 142);
-    
+    background-color: rgb(126, 0, 204);
         background-size: 30px 30px;
         background-image: linear-gradient(135deg, rgba(255, 255, 255, .15) 25%,
                           transparent 25%,
                           transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%,
                           transparent 75%, transparent);
-        animation: animate-stripes 3s linear infinite;
+        animation: animate-stripes 3s linear infinite, gradient 15s ease infinite;
     }        
     @keyframes animate-stripes {
         0% {
@@ -38,7 +37,7 @@
 }
     
 .btn{
-    height: 95px;
+    height: 10vmin;
     font-size: 48px;
     font-weight: 600;
     border-radius: 24px;
