@@ -8,18 +8,22 @@ let client = new UserGeneratorServiceClient(
 );
 
 function getUserData() {
+  document.cookie = "userName=;authToken=;";
   const request = new GenerateUserRequest();
   client.generateUser(request, {}, (err, res) => {
     if (res == null) {
       console.log(err);
+      console.log(null);
     } else {
+      console.log(res);
       switch (res.getAuthTokenCheckerCase()) {
         case 0: {
           console.log("no auth token");
           break;
         }
         case 1: {
-          console.log(res.getAuthToken());
+          const authToken = res.getAuthToken();
+          document.cookie += `authToken:${authToken};`;
 
           this.authToken = res.getAuthToken();
         }
@@ -31,7 +35,9 @@ function getUserData() {
           break;
         }
         case 2: {
-          console.log(res.getUserName());
+          const userName = res.getUserName();
+          document.cookie += `userName:${userName};`;
+          console.log(document.cookie);
           this.userName = res.getUserName();
         }
       }
