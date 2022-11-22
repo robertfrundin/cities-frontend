@@ -2,7 +2,6 @@
   max-width: 100%;
   height: 100%;
   flex-grow: 1;
-  // padding: 95px 15% 260px 15%;
   padding: 6vmin 15% 25vmin 15%;
   display: flex;
   flex-direction: column;
@@ -33,6 +32,7 @@
 
     font-size: 8vmin;
     animation: blink 3s linear infinite;
+   
     @keyframes blink {
       0% {
         border: 2px dashed #ccc;
@@ -44,37 +44,45 @@
         border: 2px dashed #000;
       }
     }
+    
   }
+  
   & input:focus {
     border: 3px solid black;
   }
-  & input::first-letter {
-    color: #ee6a6a;
-  }
+ 
   .red__letter {
     color: #ee6a6a;
   }
 }
 .copy {
-  position: absolute;
-  bottom: 10vmin;
-  left: -20vmin;
+  // position: absolute;
+  // bottom: 10vmin;
+  // bottom: 9vh;
+  position: relative;
+    bottom: -20vmin;
+  // left: -20vmin;
+  cursor: pointer;
   & span {
-    font-size: 36px;
+    // font-size: 36px;
+    font-size: 5vmin;
     font-weight: 500;
     color: #000;
     position: relative;
-    top: -7px;
+    top: -1vmin;
     left: 5px;
+  }
+  & img {
+    height: 5vmin;
   }
 }
 .close {
   border: 0;
-  height: 40px;
-  width: 40px;
-  position: absolute;
-  top: 60px;
-  right: 80px;
+  // height: 40px;
+  // width: 40px;
+  position: relative;
+  // top: 60px;
+  right: -9vmin;
   background: 0;
   font-size: 36px;
   cursor: pointer;
@@ -82,19 +90,23 @@
 }
 .close::after {
   height: 4px;
-  width: 40px;
+  // width: 40px;
+  width: 7vmin;
   content: '';
   position: absolute;
   background: #000;
   right: 3px;
   transform: rotate(-45deg);
+  border-radius: 15px;
 }
 .close::before {
   right: 3px;
   height: 4px;
-  width: 40px;
+  // width: 40px;
+  width: 7vmin;
   content: '';
   position: absolute;
   background: #000;
   transform: rotate(45deg);
+  border-radius: 15px;
 }

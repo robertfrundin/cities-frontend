@@ -7,20 +7,22 @@
 }
 
 .finish__result {
-  height: 680px;
-  padding: 100px 0 50px 0;
+  // height: 680px;
+  // padding: 100px 0 50px 0;
+  padding: 10vmin 0 2vmin 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   & h3 {
     font-weight: 500;
-    font-size: 32px;
+    // font-size: 32px;
+    font-size: 5vmin;
     text-align: center;
   }
   & .winner__image {
-    width: 300px;
-    height: 300px;
+    max-width: 300px;
+    max-height: 300px;
   }
 }
 .finish__buttons {
