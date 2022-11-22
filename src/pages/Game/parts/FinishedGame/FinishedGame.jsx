@@ -1,5 +1,9 @@
 import styles from './finishedGame.module.scss'
 import zebra from '../../../../assets/zebra.svg'
+import randombutton from '../../../../assets/randomroomicon.svg'
+import roomslist from '../../../../assets/roomsicon.svg'
+import restartbutton from '../../../../assets/restart2.svg'
+
 
 export const FinishedGame = () => {
   return (
@@ -13,9 +17,18 @@ export const FinishedGame = () => {
         </div>
       </div>
       <div className={styles.finish__buttons}>
-        <button>Случайная игра</button>
-        <button className={styles.restart}>R</button>
-        <button>В список комнат</button>
+        <button className={styles.randomgame}>
+          <img alt = 'random' src={randombutton}/>
+          <p>Случайная игра</p>
+        </button>
+        <button className={styles.restart}>
+          <img alt = 'restart' src={restartbutton}/>
+          <p>Начать заново</p>
+        </button>
+        <button className={styles.roomlist}>
+          <img alt = 'roomsllist' src={roomslist}/>
+          <p>Cписок комнат</p>     
+        </button>
       </div>
     </div>
   )
