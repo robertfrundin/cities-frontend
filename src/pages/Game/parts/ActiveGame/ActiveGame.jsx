@@ -2,8 +2,10 @@ import React from "react";
 import styles from "./activeGame.module.scss";
 import copyImage from "../../../../assets/copy.svg";
 import Progressbar from "../../../../components/Progressbar/Progressbar";
+import { useState } from "react";
 
-export const ActiveGame = ({ city }) => {
+export const ActiveGame = ({ city, sendCity }) => {
+  const [cityValue, setCityValue] = useState("");
   return (
     <div className={styles.active__game}>
       <button className={styles.close}></button>
@@ -14,8 +16,10 @@ export const ActiveGame = ({ city }) => {
         className={styles.input}
         defaultValue={city.lastLetter}
         type="text"
+        value={cityValue}
+        onChange={(e) => setCityValue(e.target.value)}
       />
-      <Progressbar />
+      <Progressbar clickHandler={() => sendCity(cityValue)} />
 
       <span className={styles.copy}>
         <img src={copyImage} alt="" />

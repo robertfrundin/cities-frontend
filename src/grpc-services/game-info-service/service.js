@@ -10,7 +10,7 @@ let client = new GameInfoProviderServiceClient(
   null,
   null
 );
-function connectToGameStream(gameId, setPlayers, setCity) {
+function connectToGameStream(gameId, setPlayers, setCity, setRound) {
   let request = new GetGameInfoRequest();
   let token = Cookies.get("authToken");
   request.setAuthToken(token);
@@ -19,7 +19,7 @@ function connectToGameStream(gameId, setPlayers, setCity) {
 
   stream.on("data", (response) => {
     const players = [];
-    console.log(response.getPlayersInfoList());
+
     response.getPlayersInfoList().forEach((player) =>
       players.push({
         name: player.getUserName(),
@@ -29,6 +29,8 @@ function connectToGameStream(gameId, setPlayers, setCity) {
     setPlayers(players);
     const city = response.getCurrentCity();
     const lastLetter = response.getRequiredLetter();
+    const round = response.getRound();
+    setRound(round);
     setCity({ value: city, lastLetter });
   });
   stream.on("status", (status) => {

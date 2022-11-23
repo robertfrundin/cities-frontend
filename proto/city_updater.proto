@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package towns;
+
+service CityUpdaterService {
+    rpc UpdateCity(UpdateCityRequest) returns(UpdateCityResponse) {}
+}
+
+message UpdateCityRequest {
+    oneof auth_token_checker {
+        string auth_token = 1;
+    }
+    oneof room_id_checker {
+        string room_id = 2;
+    }
+    oneof city_name_checker {
+        string city_name = 3;
+    }
+    oneof token_round_checker {
+        int32 token_round = 4;
+    }
+}
+
+enum UpdateCityResponseStatus {
+    SUCCESS = 0;
+    INVALID_CITY = 1;
+    DUPLICATE_CITY = 2;
+}
+
+message UpdateCityResponse {
+    oneof status_checker {
+        UpdateCityResponseStatus status = 1;
+    }
+}

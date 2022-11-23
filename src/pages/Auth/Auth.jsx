@@ -11,6 +11,8 @@ import { useNavigate } from "react-router-dom";
 export const Auth = () => {
   useEffect(getUserData);
   const navigate = useNavigate();
+  const user = { name: "oleg" };
+
   async function joinRandomRoom() {
     const roomId = await getRandomRoom();
     navigate(`game/${roomId}`);
