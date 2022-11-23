@@ -23,6 +23,7 @@ export const Auth = () => {
             <button className={styles.guest}> ГОСТЬ </button>
             <button className={styles.login}> ВОЙТИ </button>
           </div>
+          <div className={styles.username}>Привет, {user.name}!</div>
           <img alt="Avatar" className={styles.avatar} src={AuthPhoto} />
           {/*<input className = {styles.input}></input>*/}
           <div className={styles.authBlock}>

@@ -7,6 +7,7 @@ import connectToGameStream from "../../grpc-services/game-info-service/service";
 import { useSearchParams } from "react-router-dom";
 import { useState } from "react";
 import Cookies from "js-cookie";
+
 export const Game = () => {
   const [city, setCity] = useState({});
   const [players, setPlayers] = useState([]);

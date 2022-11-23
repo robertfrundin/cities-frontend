@@ -6,7 +6,9 @@ import Progressbar from "../../../../components/Progressbar/Progressbar";
 export const ActiveGame = ({ city }) => {
   return (
     <div className={styles.active__game}>
+      <button className={styles.close}></button>
       <h2>Текущее слово:</h2>
+
       <h1 className={styles.active__city}>{city.value}</h1>
       <input
         className={styles.input}
@@ -14,11 +16,11 @@ export const ActiveGame = ({ city }) => {
         type="text"
       />
       <Progressbar />
+
       <span className={styles.copy}>
         <img src={copyImage} alt="" />
         <span>#8fdad7</span>
       </span>
-      <button className={styles.close}></button>
     </div>
   );
 };

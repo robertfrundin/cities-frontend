@@ -1,30 +1,23 @@
 .wrap {
-  // width: 80%;
-  // width: 95%;
-  // min-width: 320px;
-  // height: 100px;
   background: white;
   z-index: 3;
   opacity: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // padding: 16px;
   padding: 2%;
   border-radius: 50px 12px 12px 50px;
-  // margin: 8px 1px;
   margin: 10px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   & p {
     font-weight: 500;
-    // height: 20px;
   }
 }
 .avatar {
-  width: 5vw;  
+  width: 12vmin;  
 }
 .playerinfo {
-  font-size: 1.4vw;
+  font-size: 2vmin;
   margin: auto 1.4vw;
 }
 

@@ -1,7 +1,7 @@
 import styles from './room.module.scss'
 import avatarSample1 from '../../assets/hippopotamus-svgrepo-com.svg'
-import playerLogo from '../../assets/users.svg'
-import flagIcon from '../../assets/Flag_of_Russia.svg.webp'
+import playerLogo from '../../assets/userlogo.svg'
+import flagIcon from '../../assets/Flag_of_Russia.svg.webp' 
 
 // import avatarSample2 from '../../assets/stork-svgrepo-com.svg'
 

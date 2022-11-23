@@ -6,7 +6,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   display: flex;
 
-  background: linear-gradient(-45deg, #ee7652c3, #e73c7eb5, #a129ebc1, #6e65eab7);
+  background: linear-gradient(-45deg, #ee7652c3, #db00d0ca, #a129ebc1, #6e65eab7);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
 }

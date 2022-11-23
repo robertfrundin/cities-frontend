@@ -1,4 +1,4 @@
-import styles from './style.module.css'
+import styles from './changelang.module.css'
 import classnames from "classnames";
 import flagIcon from '../../assets/Flag_of_Russia.svg.webp'
 

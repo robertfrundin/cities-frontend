@@ -1,10 +1,10 @@
 .wrap {
-  opacity: 0.7;
+  opacity: 0.85;
   width: 100%;
-  padding: 50px;
+  padding: 5vmin;
 }
 .content {
-  height: 630px;
+  max-height: 200vmin;
   margin: auto 20%;
   background: rgba(217, 217, 217, 0.26);
   border-radius: 15px;
@@ -22,7 +22,8 @@
 .authBlock{
   display: inline-flex;
   justify-content: space-between;
-  width: 373px;
+  width: 90%;
+  height: 10vmin;
 }
 .input {
   max-width: 373px;
@@ -39,7 +40,7 @@
   font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
-  font-size: 4vmin;
+  font-size: 4.5vmin;
   line-height: 39px;
   text-align: center;
   color: #FFFFFF;
@@ -60,6 +61,7 @@
 
 .avatar {
   max-width: 260px;
+  margin: 10vmin auto;
 }
 
 .scrollingImage {
@@ -68,6 +70,17 @@
   width: 100%;
   position: absolute;
 }
+.username{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 9vmin;
+  line-height: 39px;
+  text-align: center;
+  color: #FFFFFF;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 9vmin 0;
+}
 
 @media (max-width: 768px) {
   .content{
@@ -75,7 +88,7 @@
   }
   .authBlock{
     display: inline-flex;
-    justify-content: space-evenly;
-    
+    justify-content: space-between;
+    width: 80%;
   }
 }
