@@ -2,6 +2,7 @@ import styles from './game.module.scss'
 import { Player } from '../../components/Player/Player'
 import { ActiveGame } from './parts/ActiveGame/ActiveGame'
 import { FinishedGame } from './parts/FinishedGame/FinishedGame'
+import { StartedGame } from './parts/StartingGame/StartingGame'
 export const Game = () => {
   return (
     <div className={styles.wrap}>
@@ -15,8 +16,9 @@ export const Game = () => {
           </ul>
         </div>
         <div className={styles.board}>
+          <StartedGame/>
           {/* <ActiveGame/> */}
-          <FinishedGame/>
+          {/* <FinishedGame/> */}
         </div>
       </main>
      </div>
