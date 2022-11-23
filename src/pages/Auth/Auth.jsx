@@ -4,24 +4,34 @@ import AuthPhoto from "../../assets/hippopotamus-svgrepo-com.svg";
 import styles from "./auth.module.scss";
 
 import getUserData from "../../grpc-services/user-service/service";
+import getRandomRoom from "../../grpc-services/random-joiner-service/service";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Auth = () => {
-  const user = { name: "oleg" };
+  useEffect(getUserData);
+  const navigate = useNavigate();
+  async function joinRandomRoom() {
+    const roomId = await getRandomRoom();
+    navigate(`game/${roomId}`);
+  }
   return (
     <>
       <div className={styles.wrap}>
         <main className={styles.content}>
           <div className={styles.selectLogin}>
             <button className={styles.guest}> ГОСТЬ </button>
-            <button onClick={getUserData} className={styles.login}>
-              {" "}
-              ВОЙТИ{" "}
-            </button>
+            <button className={styles.login}> ВОЙТИ </button>
           </div>
           <img alt="Avatar" className={styles.avatar} src={AuthPhoto} />
           {/*<input className = {styles.input}></input>*/}
           <div className={styles.authBlock}>
-            <Button text={"ИГРАТЬ"} type="play" size="medium">
+            <Button
+              handlerClick={joinRandomRoom}
+              text={"ИГРАТЬ"}
+              type="play"
+              size="medium"
+            >
               {" "}
             </Button>
             <ChangeLang />

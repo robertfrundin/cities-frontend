@@ -25,14 +25,18 @@
     font-size: 9vmin;
     font-weight: 400;
     line-height: 1;
+    text-transform: capitalize;
+
   }
 
   & input {
+    text-transform: capitalize;
     height: 10vmin;
     border-radius: 3px;
 
     font-size: 8vmin;
     animation: blink 3s linear infinite;
+
     @keyframes blink {
       0% {
         border: 2px dashed #ccc;
