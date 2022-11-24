@@ -49,12 +49,12 @@
     }
     
   }
-  & button {
-    width: 100px;
-    height: 100px;
-    background: violet;
+  // & button {
+  //   width: 100px;
+  //   height: 100px;
+  //   background: violet;
 
-  }
+  // }
   
   & input:focus {
     border: 3px solid black;
@@ -91,7 +91,7 @@
 }
 .close::after {
   height: 4px;
-  width: 7vmin;
+  width: 5vmin;
   content: '';
   position: absolute;
   background: #000;
@@ -102,7 +102,7 @@
 .close::before {
   right: 3px;
   height: 4px;
-  width: 7vmin;
+  width: 5vmin;
   content: '';
   position: absolute;
   background: #000;
@@ -110,40 +110,53 @@
   border-radius: 15px;
 }
 
-// .progressbar {
-//   position: relative;
-//   overflow: hidden;
-//   width: 100%;
-//   height: 100%;
-//   border-radius: 24px;
-// }
+.progressbar {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+}
 
-// .progressPercent {
-//   font-weight: 600;
-//   font-size: 4vw;
-//   animation: blink 3s linear infinite;
-//   position: absolute;
-//   left: 50%;
-//   top: 50%;
-//   transform: translate(-50%, -50%);
-//   color:#eee;
-//   text-shadow: -1px 0 #555, 0 1px #555, 1px 0 #555, 0 -1px #555;
-// }
+.progressPercent {
+  font-weight: 600;
+  font-size: 4vw;
+  // animation: blink 3s linear infinite;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color:#eee;
+  text-shadow: -1px 0 #555, 0 1px #555, 1px 0 #555, 0 -1px #555;
+}
 
-// .progressColor {
-//   background-color: rgb(126, 0, 204);
-//       background-size: 30px 30px;
-//       background-image: linear-gradient(135deg, rgba(255, 255, 255, .15) 25%,
-//                         transparent 25%,
-//                         transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%,
-//                         transparent 75%, transparent);
-//       animation: animate-stripes 3s linear infinite, gradient 15s ease infinite;
-//   }        
-//   @keyframes animate-stripes {
-//       0% {
-//       background-position: 0 0;
-//       }
-//       100% {
-//       background-position: 60px 0;
-//       }
-// }
+.progressColor {
+  background-color: rgb(126, 0, 204);
+      background-size: 30px 30px;
+      background-image: linear-gradient(135deg, rgba(255, 255, 255, .15) 25%,
+                        transparent 25%,
+                        transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%,
+                        transparent 75%, transparent);
+      animation: animate-stripes 3s linear infinite, gradient 15s ease infinite;
+  }        
+  @keyframes animate-stripes {
+      0% {
+      background-position: 0 0;
+      }
+      100% {
+      background-position: 60px 0;
+      }
+}
+.btn{
+  height: 10vmin;
+  font-size: 48px;
+  font-weight: 600;
+  border-radius: 24px;
+  background-color: white;
+  opacity: 0.9;
+  color: #fff;
+  cursor: pointer;
+  text-shadow: -0 -2px 1px #000000, 0 -2px 1px #000000, -0 2px 1px #000000, 0 2px 1px #000000, -2px -0 1px #000000, 2px -0 1px #000000, -2px 0 1px #000000, 2px 0 1px #000000, -1px -2px 1px #000000, 1px -2px 1px #000000, -1px 2px 1px #000000,
+    1px 2px 1px #000000, -2px -1px 1px #000000, 2px -1px 1px #000000, -2px 1px 1px #000000, 2px 1px 1px #000000, -2px -2px 1px #000000, 2px -2px 1px #000000, -2px 2px 1px #000000, 2px 2px 1px #000000, -2px -2px 1px #000000, 2px -2px 1px #000000,
+    -2px 2px 1px #000000, 2px 2px 1px #000000;
+}

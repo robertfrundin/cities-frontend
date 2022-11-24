@@ -1,8 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./activeGame.module.scss";
 import copyImage from "../../../../assets/copy.svg";
-
-import { useState } from "react";
 import uploadCity from "../../../../grpc-services/city-updater-service/service";
 export const ActiveGame = ({ city, gameId, round }) => {
   const [cityValue, setCityValue] = useState("");
@@ -19,8 +17,25 @@ export const ActiveGame = ({ city, gameId, round }) => {
         value={cityValue}
         onChange={(e) => setCityValue(e.target.value)}
       />
+      <button
+        className={styles.btn}
+        onClick={() => {
+          uploadCity();
+        }}
+      >
+        <div className={styles.progressbar}>
+          <div
+            className={styles.progressColor}
+            style={{
+              height: `100%`,
+              width: `100%`,
+              transition: "width 1s linear",
+            }}
+          ></div>
+          <span className={styles.progressPercent}> ОТПРАВИТЬ </span>
+        </div>
+      </button>
 
-      {/*<button onClick={() => uploadCity()}>Отправить</button>*/}
       <span className={styles.copy}>
         <img src={copyImage} alt="" />
         <span>#8fdad7</span>

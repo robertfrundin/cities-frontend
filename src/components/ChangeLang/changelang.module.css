@@ -10,9 +10,3 @@
 .input:hover {
   cursor: pointer;
 }
-
-/* @media  (max-width: 770px) {
-  .input {
-    display: none;
-  }
-} */
