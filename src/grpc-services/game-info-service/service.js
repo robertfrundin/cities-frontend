@@ -17,27 +17,6 @@ function connectToGameStream(gameId, setPlayers, setCity, setRound) {
   request.setRoomId(gameId);
   let stream = client.getGameInfo(request, {});
 
-  stream.on("data", (response) => {
-    const players = [];
-
-    response.getPlayersInfoList().forEach((player) =>
-      players.push({
-        name: player.getUserName(),
-        score: player.getUserScore(),
-      })
-    );
-    setPlayers(players);
-    const city = response.getCurrentCity();
-    const lastLetter = response.getRequiredLetter();
-    const round = response.getRound();
-    setRound(round);
-    setCity({ value: city, lastLetter });
-  });
-  stream.on("status", (status) => {
-    console.log(status.code + " status code");
-  });
-  stream.on("end", (end) => {
-    console.log("end");
-  });
+  return stream
 }
 export default connectToGameStream;
