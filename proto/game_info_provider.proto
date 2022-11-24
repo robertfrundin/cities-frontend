@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package towns;
+
+service GameInfoProviderService {
+    rpc GetGameInfo(GetGameInfoRequest) returns(stream GetGameInfoResponse) {}
+}
+
+message GetGameInfoRequest {
+    oneof auth_token_checker {
+        string auth_token = 1;
+    }
+    oneof room_id_checker {
+        string room_id = 2;
+    }
+}
+
+enum GameStage {
+    NOT_STARTED = 0;
+    IN_PROGRESS = 1;
+    ENDED = 2;
+}
+
+message PlayerInfo {
+    oneof user_score_checker {
+        int32 user_score = 1;
+    }
+    oneof user_id_checker {
+        string user_id = 2;
+    }
+    oneof user_name_checker {
+        string user_name = 3;
+    }
+}
+
+
+message GetGameInfoResponse {
+    oneof game_stage_checker {
+        GameStage game_stage = 1;
+    }
+    oneof current_city_checker {
+        string current_city = 2;
+    }
+    oneof required_letter_checker {
+        string required_letter = 3;
+    }
+    oneof round_checker {
+        int32 round = 4;
+    }
+    repeated PlayerInfo players_info = 5;
+}

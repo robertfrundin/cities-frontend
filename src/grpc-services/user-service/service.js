@@ -1,3 +1,4 @@
+import Cookies from "js-cookie";
 const { UserGeneratorServiceClient } = require("./user_generator_grpc_web_pb");
 const { GenerateUserRequest } = require("./user_generator_pb");
 
@@ -8,12 +9,10 @@ let client = new UserGeneratorServiceClient(
 );
 
 function getUserData() {
-  document.cookie = "userName=;authToken=;";
   const request = new GenerateUserRequest();
   client.generateUser(request, {}, (err, res) => {
     if (res == null) {
       console.log(err);
-      console.log(null);
     } else {
       console.log(res);
       switch (res.getAuthTokenCheckerCase()) {
@@ -23,9 +22,7 @@ function getUserData() {
         }
         case 1: {
           const authToken = res.getAuthToken();
-          document.cookie += `authToken:${authToken};`;
-
-          this.authToken = res.getAuthToken();
+          Cookies.set("authToken", authToken);
         }
       }
 
@@ -36,9 +33,8 @@ function getUserData() {
         }
         case 2: {
           const userName = res.getUserName();
-          document.cookie += `userName:${userName};`;
+          Cookies.set("userName", userName);
           console.log(document.cookie);
-          this.userName = res.getUserName();
         }
       }
     }
