@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./activeGame.module.scss";
 import copyImage from "../../../../assets/copy.svg";
-import Progressbar from "../../../../components/Progressbar/Progressbar";
-import { Button } from "../../../../components/Button/Button";
-import { useState } from "react";
+// import Progressbar from "../../../../components/Progressbar/Progressbar";
+// import { Button } from "../../../../components/Button/Button";
 
-export const ActiveGame = ({ city, sendCity }) => {
+export const ActiveGame = ({ city, sendCity,clickHandler }) => {
+
   const [cityValue, setCityValue] = useState("");
   return (
     <div className={styles.active__game}>
@@ -21,7 +21,24 @@ export const ActiveGame = ({ city, sendCity }) => {
         onChange={(e) => setCityValue(e.target.value)}
       />
       {/* <Progressbar clickHandler={() => sendCity(cityValue)} /> */}
-      <Button/>
+      <button
+        className={styles.btn}
+        onClick={() => {
+          clickHandler();
+        }}
+      >
+        <div className={styles.progressbar}>
+          <div
+            className={styles.progressColor}
+            style={{
+              height: `100%`,
+              width: `100%`,
+              transition: "width 1s linear",
+            }}
+          ></div>
+          <span className={styles.progressPercent}> ОТПРАВИТЬ </span>
+        </div>
+      </button>
       <span className={styles.copy}>
         <img src={copyImage} alt="" />
         <span>#8fdad7</span>

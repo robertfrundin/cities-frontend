@@ -7,6 +7,8 @@ import uploadCity from "../../grpc-services/city-updater-service/service";
 import { useState } from "react";
 import Cookies from "js-cookie";
 import { upload } from "@testing-library/user-event/dist/upload";
+import { StartedGame } from "./parts/StartedGame/StartedGame";
+import { FinishedGame } from "./parts/FinishedGame/FinishedGame"
 
 export const Game = () => {
   const [city, setCity] = useState({});
@@ -36,8 +38,11 @@ export const Game = () => {
           </ul>
         </div>
         <div className={styles.board}>
-          {/* <FinishedGame></FinishedGame> */}
+              {/* <StartedGame/> */}
+         
           <ActiveGame sendCity={sendNewCity} city={city} />
+           {/* <FinishedGame></FinishedGame> */}
+
         </div>
       </main>
     </div>
