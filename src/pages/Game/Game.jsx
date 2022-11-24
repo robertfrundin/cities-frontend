@@ -3,11 +3,11 @@ import { Player } from "../../components/Player/Player";
 import { ActiveGame } from "./parts/ActiveGame/ActiveGame";
 import { useCallback, useEffect } from "react";
 import connectToGameStream from "../../grpc-services/game-info-service/service";
-import { uploadCity } from "../../grpc-services/city-updater-service/service";
+
 import { useState } from "react";
 import Cookies from "js-cookie";
-import { upload } from "@testing-library/user-event/dist/upload";
-
+import uploadCity from "../../grpc-services/city-updater-service/service";
+uploadCity();
 export const Game = () => {
   const [city, setCity] = useState({});
   const [round, setRound] = useState(0);
@@ -19,7 +19,7 @@ export const Game = () => {
 
   return (
     <div className={styles.wrap}>
-      <main className={styles.content}>
+      <main onClick={() => uploadCity()} className={styles.content}>
         <div className={styles.players}>
           <ul>
             <Player name={Cookies.get("userName")} score={0}></Player>

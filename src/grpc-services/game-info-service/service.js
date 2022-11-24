@@ -1,5 +1,5 @@
 import Cookies from "js-cookie";
-const { GameInfoService } = require("./game_info_provider_grpc_web_pb");
+
 const { GetGameInfoRequest } = require("./game_info_provider_pb");
 const { getGameInfo } = require("./game_info_provider_pb");
 const {
@@ -16,7 +16,6 @@ function connectToGameStream(gameId, setPlayers, setCity, setRound) {
   request.setAuthToken(token);
   request.setRoomId(gameId);
   let stream = client.getGameInfo(request, {});
-
   stream.on("data", (response) => {
     const players = [];
 

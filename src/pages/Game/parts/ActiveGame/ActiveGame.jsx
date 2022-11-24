@@ -20,7 +20,7 @@ export const ActiveGame = ({ city, gameId, round }) => {
         onChange={(e) => setCityValue(e.target.value)}
       />
 
-      <button onClick={() => uploadCity()}>Отправить</button>
+      {/*<button onClick={() => uploadCity()}>Отправить</button>*/}
       <span className={styles.copy}>
         <img src={copyImage} alt="" />
         <span>#8fdad7</span>
