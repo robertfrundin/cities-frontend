@@ -10,7 +10,7 @@ let client = new GameInfoProviderServiceClient(
   null,
   null
 );
-function connectToGameStream(gameId, setPlayers, setCity, setRound) {
+function connectToGameStream(gameId) {
   let request = new GetGameInfoRequest();
   let token = Cookies.get("authToken");
   request.setAuthToken(token);

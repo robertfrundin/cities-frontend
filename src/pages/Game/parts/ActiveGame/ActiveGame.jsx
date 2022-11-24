@@ -12,7 +12,6 @@ export const ActiveGame = ({ city, gameId, round }) => {
       <h1 className={styles.active__city}>{city.value}</h1>
       <input
         className={styles.input}
-        defaultValue={city.lastLetter}
         type="text"
         value={cityValue}
         onChange={(e) => setCityValue(e.target.value)}
@@ -20,7 +19,7 @@ export const ActiveGame = ({ city, gameId, round }) => {
       <button
         className={styles.btn}
         onClick={() => {
-          uploadCity();
+          uploadCity(cityValue, gameId, round);
         }}
       >
         <div className={styles.progressbar}>
