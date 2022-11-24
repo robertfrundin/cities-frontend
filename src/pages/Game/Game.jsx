@@ -1,9 +1,9 @@
 import styles from "./game.module.scss";
 import { Player } from "../../components/Player/Player";
 import { ActiveGame } from "./parts/ActiveGame/ActiveGame";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import connectToGameStream from "../../grpc-services/game-info-service/service";
-import uploadCity from "../../grpc-services/city-updater-service/service";
+import { uploadCity } from "../../grpc-services/city-updater-service/service";
 import { useState } from "react";
 import Cookies from "js-cookie";
 import { upload } from "@testing-library/user-event/dist/upload";
@@ -12,14 +12,11 @@ export const Game = () => {
   const [city, setCity] = useState({});
   const [round, setRound] = useState(0);
   const [players, setPlayers] = useState([]);
+  const gameId = window.location.pathname.slice(6);
   useEffect(() => {
-    const gameId = window.location.pathname.slice(6);
     connectToGameStream(gameId, setPlayers, setCity, setRound);
   });
-  function sendNewCity(city) {
-    const gameId = window.location.pathname.slice(6);
-    uploadCity(city, gameId, round, setCity);
-  }
+
   return (
     <div className={styles.wrap}>
       <main className={styles.content}>
@@ -37,7 +34,7 @@ export const Game = () => {
         </div>
         <div className={styles.board}>
           {/* <FinishedGame></FinishedGame> */}
-          <ActiveGame sendCity={sendNewCity} city={city} />
+          <ActiveGame city={city} gameId={gameId} round={round} />
         </div>
       </main>
     </div>

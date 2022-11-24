@@ -4,7 +4,7 @@ import copyImage from "../../../../assets/copy.svg";
 import Progressbar from "../../../../components/Progressbar/Progressbar";
 import { useState } from "react";
 
-export const ActiveGame = ({ city, sendCity }) => {
+export const ActiveGame = ({ city, gameId, round }) => {
   const [cityValue, setCityValue] = useState("");
   return (
     <div className={styles.active__game}>
@@ -19,7 +19,7 @@ export const ActiveGame = ({ city, sendCity }) => {
         value={cityValue}
         onChange={(e) => setCityValue(e.target.value)}
       />
-      <Progressbar clickHandler={() => sendCity(cityValue)} />
+      <Progressbar city={city} gameId={gameId} round={round} />
 
       <span className={styles.copy}>
         <img src={copyImage} alt="" />
