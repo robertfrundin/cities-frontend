@@ -16,8 +16,31 @@ export const Game = () => {
   const [players, setPlayers] = useState([]);
   const gameId = window.location.pathname.slice(6);
   useEffect(() => {
-    connectToGameStream(gameId, setPlayers, setCity, setRound);
-  });
+    const stream=connectToGameStream(gameId, setPlayers, setCity, setRound);
+    console.log('useEffect',stream)
+    stream.on("data", (response) => {
+      const players = [];
+  
+      response.getPlayersInfoList().forEach((player) =>
+        players.push({
+          name: player.getUserName(),
+          score: player.getUserScore(),
+        })
+      );
+      setPlayers(players);
+      const city = response.getCurrentCity();
+      const lastLetter = response.getRequiredLetter();
+      const round = response.getRound();
+      setRound(round);
+      setCity({ value: city, lastLetter });
+    });
+    stream.on("status", (status) => {
+      console.log(status.code + " status code");
+    });
+    stream.on("end", (end) => {
+      console.log("end");
+    });
+  },[]);
 
   return (
     <div className={styles.wrap}>

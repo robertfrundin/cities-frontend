@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package towns;
+
+service RoomListProviderService {
+    rpc GetRoomList(GetRoomListRequest) returns(GetRoomListResponse) {}
+}
+
+message GetRoomListRequest {
+    oneof auth_token_checker {
+        string auth_token = 1;
+    }
+}
+
+message RoomInfo {
+    string room_id = 1;
+    uint32 taken_slots = 2;
+    uint32 slots_limit = 3;
+}
+
+message GetRoomListResponse {
+    repeated RoomInfo rooms = 1;
+}
