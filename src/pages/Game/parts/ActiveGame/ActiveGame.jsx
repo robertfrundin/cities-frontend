@@ -3,7 +3,7 @@ import styles from "./activeGame.module.scss";
 import copyImage from "../../../../assets/copy.svg";
 
 import { useState } from "react";
-
+import uploadCity from "../../../../grpc-services/city-updater-service/service";
 export const ActiveGame = ({ city, gameId, round }) => {
   const [cityValue, setCityValue] = useState("");
   return (
@@ -20,6 +20,7 @@ export const ActiveGame = ({ city, gameId, round }) => {
         onChange={(e) => setCityValue(e.target.value)}
       />
 
+      <button onClick={() => uploadCity()}>Отправить</button>
       <span className={styles.copy}>
         <img src={copyImage} alt="" />
         <span>#8fdad7</span>
