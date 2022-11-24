@@ -18,9 +18,24 @@ export const ActiveGame = ({ city, gameId, round }) => {
         value={cityValue}
         onChange={(e) => setCityValue(e.target.value)}
       />
-
-
-      <button onClick={() => uploadCity()}>Отправить</button>
+      <button
+          className={styles.btn}
+          onClick={() => {
+            uploadCity();
+          }}
+        >
+        <div className={styles.progressbar}>
+          <div
+            className={styles.progressColor}
+            style={{
+              height: `100%`,
+              width: `100%`,
+              transition: "width 1s linear",
+            }}
+          ></div>
+          <span className={styles.progressPercent}> ОТПРАВИТЬ </span>
+        </div>
+      </button>
 
       <span className={styles.copy}>
         <img src={copyImage} alt="" />
