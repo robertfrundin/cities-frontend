@@ -24,7 +24,11 @@ export const ActiveGame = ({ city, gameId, round }) => {
       <span className={styles.copy}>
         <img src={copyImage} alt="" />
         <span>#8fdad7</span>
+<<<<<<< HEAD
+      </span>      
+=======
       </span>
+>>>>>>> 8e13d024c50c351da2b856e9e70eebf38d33d3ae
     </div>
   );
 };

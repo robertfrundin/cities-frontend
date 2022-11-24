@@ -2,7 +2,7 @@
   height: 380px;
   width: 380px;
   background-color: white;
-  margin: 20px;
+  margin: 2vmin;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
@@ -21,7 +21,6 @@
   width: 100%;
 
   & > img {
-    // background: url("../../assets/Flag_of_Russia.svg.webp") ;
     position: relative;
     width: 70px;
     height: 70px;
@@ -52,12 +51,12 @@
 }
 .playerCount {
   margin: 0 auto;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .joinButton {
   background: url('../../assets/join.svg') no-repeat;
-  width: 71px;
+  width: 70px;
   height: 70px;
 
   border: 0;

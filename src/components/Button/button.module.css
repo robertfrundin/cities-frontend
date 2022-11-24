@@ -26,11 +26,11 @@
 }
 
 .button__text {
-  font-family: 'Inter';
+  /* font-family: 'Inter'; */
   font-style: normal;
   font-weight: 600;
-  font-size: 3.5vmin;
-  line-height: 24px;
+  font-size: 3vmin;
+  /* line-height: 24px; */
   text-align: center;
 
   color: #301A6B;
