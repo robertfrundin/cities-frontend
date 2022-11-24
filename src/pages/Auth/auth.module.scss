@@ -1,7 +1,10 @@
 .wrap {
   opacity: 0.85;
   width: 100%;
-  padding: 5vmin;
+  // padding: 5vmin;
+  display: flex;
+  justify-content: center;
+  height: 100%;
 }
 .content {
   max-height: 200vmin;
@@ -12,7 +15,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 20px;
 }
 
 .selectLogin {
@@ -24,6 +26,7 @@
   justify-content: space-between;
   width: 90%;
   height: 10vmin;
+  margin: 3vmin;
 }
 .input {
   max-width: 373px;
@@ -33,15 +36,14 @@
   font-size: 24px;
 }
 .guest, .login {
+  cursor:pointer;
   width: 50%;
-  height: 70px;
+  height: 9vmin;
   border-radius: 1%;
   border: 0;
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
-  font-size: 4.5vmin;
-  line-height: 39px;
+  font-size: 4vmin;
   text-align: center;
   color: #FFFFFF;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
@@ -53,6 +55,7 @@
 .login {
   background: rgba(217, 217, 217, 0.26);
   margin-right: 0px;
+  border-radius: 0 15px 0 0;
 }
 
 .input:focus{
@@ -61,7 +64,7 @@
 
 .avatar {
   max-width: 260px;
-  margin: 10vmin auto;
+  margin: 4vmin auto;
 }
 
 .scrollingImage {
@@ -71,15 +74,13 @@
   position: absolute;
 }
 .username{
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
-  font-size: 9vmin;
-  line-height: 39px;
+  font-size: 6vmin;
   text-align: center;
   color: #FFFFFF;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  margin: 9vmin 0;
+  margin: 5vmin auto;
 }
 
 @media (max-width: 768px) {

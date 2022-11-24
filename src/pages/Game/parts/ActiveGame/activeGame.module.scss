@@ -56,15 +56,10 @@
   }
 }
 .copy {
-  // position: absolute;
-  // bottom: 10vmin;
-  // bottom: 9vh;
   position: relative;
-    bottom: -20vmin;
-  // left: -20vmin;
+  bottom: -20vmin;
   cursor: pointer;
   & span {
-    // font-size: 36px;
     font-size: 5vmin;
     font-weight: 500;
     color: #000;
@@ -78,10 +73,7 @@
 }
 .close {
   border: 0;
-  // height: 40px;
-  // width: 40px;
   position: relative;
-  // top: 60px;
   right: -9vmin;
   background: 0;
   font-size: 36px;
@@ -90,7 +82,6 @@
 }
 .close::after {
   height: 4px;
-  // width: 40px;
   width: 7vmin;
   content: '';
   position: absolute;
@@ -102,7 +93,6 @@
 .close::before {
   right: 3px;
   height: 4px;
-  // width: 40px;
   width: 7vmin;
   content: '';
   position: absolute;

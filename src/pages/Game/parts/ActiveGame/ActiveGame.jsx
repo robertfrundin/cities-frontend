@@ -18,10 +18,7 @@ export const ActiveGame = () => {
       <span className={styles.copy}>
         <img src={copyImage} alt="" />
         <span>#8fdad7</span>
-      </span>
-      {/* <button className={styles.close}></button> */}
-      
-      
+      </span>      
     </div>
   )
 }

@@ -1,9 +1,10 @@
 .roomsList {
-
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  height: 860px;
+  // height: 860px;
   overflow-y: auto;
   border-radius: 15px;
+
+  margin: 2vmin;
 }
