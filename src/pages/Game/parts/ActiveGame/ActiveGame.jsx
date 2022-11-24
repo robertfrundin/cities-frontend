@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./activeGame.module.scss";
 import copyImage from "../../../../assets/copy.svg";
 import Progressbar from "../../../../components/Progressbar/Progressbar";
+import { Button } from "../../../../components/Button/Button";
 import { useState } from "react";
 
 export const ActiveGame = ({ city, sendCity }) => {
@@ -19,8 +20,8 @@ export const ActiveGame = ({ city, sendCity }) => {
         value={cityValue}
         onChange={(e) => setCityValue(e.target.value)}
       />
-      <Progressbar clickHandler={() => sendCity(cityValue)} />
-
+      {/* <Progressbar clickHandler={() => sendCity(cityValue)} /> */}
+      <Button/>
       <span className={styles.copy}>
         <img src={copyImage} alt="" />
         <span>#8fdad7</span>
