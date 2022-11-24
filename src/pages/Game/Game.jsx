@@ -35,16 +35,10 @@ export const Game = () => {
           </ul>
         </div>
         <div className={styles.board}>
-<<<<<<< HEAD
-              {/* <StartedGame/> */}
-         
-          <ActiveGame sendCity={sendNewCity} city={city} />
-           {/* <FinishedGame></FinishedGame> */}
 
-=======
           {/* <FinishedGame></FinishedGame> */}
           <ActiveGame city={city} gameId={gameId} round={round} />
->>>>>>> c3e99b0e17ee55eef47bb77e52fd939a3037cb7e
+
         </div>
       </main>
     </div>
