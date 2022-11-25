@@ -19,20 +19,24 @@
   border: none;
   background: none;
   background-color: var(--backgroundColor);
+  &:hover {
+    cursor: pointer;
+    background-color: transparent;
+    border: solid 3px;
+    border-color: #fff;
+    transition: all .1s ease-in-out;
+    & span {
+      color: #fff;
+    }
+  }
 }
 
-.button:hover {
-  cursor: pointer;
-}
 
 .button__text {
-  /* font-family: 'Inter'; */
   font-style: normal;
   font-weight: 600;
   font-size: 3vmin;
-  /* line-height: 24px; */
   text-align: center;
-
   color: #301A6B;
 }
 
@@ -48,7 +52,6 @@
 .button_size_medium {
   justify-content: center;
   align-items: center;
-  /* padding: 10px 16px; */
   width: 27vmin;
   background: #FFFFFF;
   box-shadow: 0px 6px 6px #301A6B;
