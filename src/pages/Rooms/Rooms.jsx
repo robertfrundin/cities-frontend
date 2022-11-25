@@ -5,10 +5,10 @@ import { Room } from "../../components/Room/Room";
 import getRoomList from "../../grpc-services/room-list-service/service";
 import { useEffect, useState } from "react";
 export const Rooms = ({ className, handlerClick, roomsCount }) => {
-  useEffect(() => {
-    getRoomList(setRoomlist);
-  });
   const [roomList, setRoomlist] = useState([]);
+  useEffect(() => {
+    getRoomList().then((x) => setRoomlist(x));
+  }, []);
 
   return (
     <div className={styles.roomsList}>

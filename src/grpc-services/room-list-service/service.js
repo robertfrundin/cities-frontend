@@ -10,7 +10,7 @@ let client = new RoomListProviderServiceClient(
   null
 );
 
-function getRoomList(setter) {
+async function getRoomList() {
   const request = new GetRoomListRequest();
   const token = Cookies.get("authToken");
   request.setAuthToken(token);
@@ -18,6 +18,7 @@ function getRoomList(setter) {
     client.getRoomList(request, {}, function (err, res) {
       if (err) {
         console.log(err);
+        reject(err);
       } else {
         const listFromServer = res.getRoomsList();
         const mappedList = listFromServer.map((x) => {
@@ -27,10 +28,12 @@ function getRoomList(setter) {
             taken: x.getTakenSlots(),
           };
         });
-        setter(mappedList);
+        resolve(mappedList);
       }
     })
   );
+  const dataFromServer = await getListFromServer;
+  return dataFromServer;
 }
 
 export default getRoomList;

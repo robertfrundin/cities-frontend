@@ -13,10 +13,10 @@ root.render(
   <BrowserRouter>
     <Routes>
       <Route index element={<Auth />}></Route>
-      <Route path="auth" element={<Auth />}></Route>
+      <Route path="/" element={<Auth />}></Route>
       <Route path="rooms" element={<Rooms />}></Route>
       <Route path="game/:gameid" element={<Game />}></Route>
-      <Route path='*' element = {<PageNotFound />}></Route>
+      <Route path="*" element={<PageNotFound />}></Route>
     </Routes>
   </BrowserRouter>
 );
