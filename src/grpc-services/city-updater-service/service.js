@@ -5,7 +5,7 @@ const { CityUpdaterServiceClient } = require("./city_updater_grpc_web_pb");
 
 const uploadCity = (city, roomId, round) => {
   let client = new CityUpdaterServiceClient(
-    "http://172.21.132.121:9090",
+    "http://0.0.0.0:9090",
     null,
     null
   );

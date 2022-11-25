@@ -5,7 +5,7 @@ const {
   GameInfoProviderServiceClient,
 } = require("./game_info_provider_grpc_web_pb");
 let client = new GameInfoProviderServiceClient(
-  "http://172.21.132.121:9090",
+  "http://0.0.0.0:9090",
   null,
   null
 );

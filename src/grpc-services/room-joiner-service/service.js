@@ -3,7 +3,7 @@ const { JoinRoomRequest } = require("./room_joiner_pb");
 const { RoomJoinerServiceClient } = require("./room_joiner_grpc_web_pb");
 
 const client = new RoomJoinerServiceClient(
-  "http://172.21.132.121:9090",
+  "http://0.0.0.0:9090",
   null,
   null
 );

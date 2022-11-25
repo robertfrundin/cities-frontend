@@ -3,7 +3,7 @@ const { UserGeneratorServiceClient } = require("./user_generator_grpc_web_pb");
 const { GenerateUserRequest } = require("./user_generator_pb");
 
 let client = new UserGeneratorServiceClient(
-  "http://172.21.132.121:9090",
+  "http://0.0.0.0:9090",
   null,
   null
 );
