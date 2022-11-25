@@ -1,9 +1,9 @@
 import { Button } from "../../components/Button/Button";
-import styles from "./Page404.module.scss";
+import styles from "./PageNotFound.module.scss";
 import logo404 from "../../assets/404.svg"
 import { useNavigate } from "react-router-dom";
 
-export const Page404 = () => {
+export const PageNotFound = () => {
 	const navigate = useNavigate();
 	function toAuth() {
 		navigate(`/auth`);

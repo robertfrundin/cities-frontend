@@ -59,8 +59,8 @@ export const Game = () => {
         </div>
         <div className={styles.board}>
 
-          {/* <FinishedGame></FinishedGame> */}
-          <ActiveGame city={city} gameId={gameId} round={round} />
+          <FinishedGame></FinishedGame>
+          {/* <ActiveGame city={city} gameId={gameId} round={round} /> */}
 
         </div>
       </main>

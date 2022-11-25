@@ -17,6 +17,9 @@ export const Auth = () => {
     const roomId = await getRandomRoom();
     navigate(`game/${roomId}`);
   }
+  async function toRoomsList() {
+    navigate(`/rooms`);
+  }
   return (
     <>
       <div className={styles.wrap}>
@@ -38,7 +41,12 @@ export const Auth = () => {
               {" "}
             </Button>
             <ChangeLang />
-            <Button text={"КОМНАТЫ"} type="rooms" size="medium"></Button>
+            <Button 
+              handlerClick={toRoomsList} 
+              text={"КОМНАТЫ"} 
+              type="rooms" 
+              size="medium"> 
+            </Button>
           </div>
           {/* <div className = {styles.scrollingImage}></div> */}
         </main>
