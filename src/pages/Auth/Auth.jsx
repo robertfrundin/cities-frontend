@@ -9,7 +9,9 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const Auth = () => {
-  useEffect(getUserData);
+  useEffect(() => {
+    getUserData();
+  });
   const navigate = useNavigate();
   const openRoomsList = () => {
     navigate("rooms");

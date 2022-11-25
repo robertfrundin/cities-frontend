@@ -8,37 +8,49 @@ let client = new UserGeneratorServiceClient(
   null
 );
 
-function getUserData() {
-  const request = new GenerateUserRequest();
-  client.generateUser(request, {}, (err, res) => {
-    if (res == null) {
-      console.log(err);
+async function getUserData() {
+  const getDataFromServer = new Promise((resolve, reject) => {
+    const token = Cookies.get("authToken");
+    if (token != undefined) {
+      resolve(token);
     } else {
-      console.log(res);
-      switch (res.getAuthTokenCheckerCase()) {
-        case 0: {
-          console.log("no auth token");
-          break;
-        }
-        case 1: {
-          const authToken = res.getAuthToken();
-          Cookies.set("authToken", authToken);
-        }
-      }
+      const request = new GenerateUserRequest();
+      client.generateUser(request, {}, (err, res) => {
+        if (res == null) {
+          console.log(err);
+        } else {
+          console.log(res);
+          switch (res.getAuthTokenCheckerCase()) {
+            case 0: {
+              console.log("no auth token");
+              reject();
+              break;
+            }
+            case 1: {
+              const authToken = res.getAuthToken();
+              Cookies.set("authToken", authToken);
+            }
+          }
 
-      switch (res.getUserNameCheckerCase()) {
-        case 0: {
-          console.log("no auth token");
-          break;
+          switch (res.getUserNameCheckerCase()) {
+            case 0: {
+              console.log("no auth token");
+              reject();
+              break;
+            }
+            case 2: {
+              const userName = res.getUserName();
+              Cookies.set("userName", userName);
+              resolve(userName);
+            }
+          }
         }
-        case 2: {
-          const userName = res.getUserName();
-          Cookies.set("userName", userName);
-          console.log(document.cookie);
-        }
-      }
+      });
     }
   });
+  const data = await getDataFromServer;
+  console.log(data);
+  return data;
 }
 
 export default getUserData;
