@@ -22,6 +22,9 @@ export const Auth = () => {
     const roomId = await getRandomRoom();
     navigate(`game/${roomId}`);
   }
+  async function toRoomsList() {
+    navigate(`/rooms`);
+  }
   return (
     <>
       <div className={styles.wrap}>
@@ -43,6 +46,7 @@ export const Auth = () => {
               {" "}
             </Button>
             <ChangeLang />
+
             <Button
               handlerClick={openRoomsList}
               text={"КОМНАТЫ"}

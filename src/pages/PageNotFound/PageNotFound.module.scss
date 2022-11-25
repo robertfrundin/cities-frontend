@@ -1,0 +1,51 @@
+.wrap {
+    opacity: 0.85;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+  }
+  .content {
+    max-height: 200vmin;
+    margin: auto 20%;
+    background: rgba(217, 217, 217, 0.26);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+.avatar {
+    margin: 4vmin auto;
+    max-width: 30vmin;
+}
+
+.description{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 6vmin;
+    text-align: center;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    margin: 3vmin;
+}
+
+.homebutton{
+    width: 40vmin; 
+    height: 8vmin;
+    margin: 5vmin;
+    display: inline-flex;
+    align-items: center; 
+
+  &:hover {
+    background-color: transparent;
+    border: solid 3px;
+    border-color: #fff;
+    transition: all .1s ease-in-out;
+    & span {
+      color: #fff;
+    }
+   
+  }
+ 
+}

@@ -2,11 +2,24 @@ import styles from './finishedGame.module.scss'
 import zebra from '../../../../assets/zebra.svg'
 import randombutton from '../../../../assets/randomroomicon.svg'
 import roomslist from '../../../../assets/roomsicon.svg'
-import restartbutton from '../../../../assets/restart2.svg'
+// import restartbutton from '../../../../assets/restart2.svg'
+
+import getRandomRoom from "../../../../grpc-services/random-joiner-service/service";
+import { useNavigate } from "react-router-dom";
+import { Button } from '../../../../components/Button/Button';
 
 
 export const FinishedGame = () => {
-  return (
+  const navigate = useNavigate();
+
+  async function joinRandomRoom() {
+    const roomId = await getRandomRoom();
+    navigate(`game/${roomId}`);
+  }
+  async function toRoomsList() {
+    navigate(`/rooms`);
+  }
+   return (
     <div className={styles.game__finished}>
       <div className={styles.finish__result}>
         <h3>ИГРА ОКОНЧЕНА</h3>
@@ -17,18 +30,22 @@ export const FinishedGame = () => {
         </div>
       </div>
       <div className={styles.finish__buttons}>
-        <button className={styles.randomgame}>
-          <img alt = 'random' src={randombutton}/>
-          <p>Случайная игра</p>
-        </button>
-        <button className={styles.restart}>
-          <img alt = 'restart' src={restartbutton}/>
-          <p>Начать заново</p>
-        </button>
-        <button className={styles.roomlist}>
-          <img alt = 'roomsllist' src={roomslist}/>
-          <p>Cписок комнат</p>     
-        </button>
+        <Button 
+          img alt = 'random' src={randombutton}
+          handlerClick={joinRandomRoom} 
+          className={styles.randomgame}
+          text = {'Случайная игра'}
+          size="medium">
+      
+        </Button>
+        <Button
+          img alt = 'roomslist' src={roomslist}
+          handlerClick={toRoomsList} 
+          className={styles.roomlist}
+          text = {'Cписок комнат'}
+          size="medium">
+ 
+        </Button>
       </div>
     </div>
   )

@@ -55,11 +55,16 @@
 }
 
 .joinButton {
-  background: url('../../assets/join.svg') no-repeat;
-  width: 70px;
+  background: url('../../assets/plus-svgrepo-com.svg') no-repeat;
+  width: 71px;
   height: 70px;
-
   border: 0;
+  
+  &:hover {
+    cursor: pointer;
+     -webkit-filter: invert(50%); /* safari 6.0 - 9.0 */
+              filter: invert(50%); 
+  }
 }
 
 .switchLang {

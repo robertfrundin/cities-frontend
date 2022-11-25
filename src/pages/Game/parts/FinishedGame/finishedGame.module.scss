@@ -7,7 +7,7 @@
 }
 
 .finish__result {
-  padding: 10vmin;
+  padding: 5vmin;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,6 +22,16 @@
     height: 20vmin;
   }
 }
+
+// .randomgame {
+//   background: url("../../../../assets/randomroomicon.svg") no-repeat;
+// }
+
+// .roomlist {
+//   background: url("../../../../assets/roomsicon.svg") no-repeat;
+// }
+
+
 .finish__buttons {
   border-radius: 0px 0px 15px 0px;
   padding: 2vmin;
@@ -31,27 +41,40 @@
   
   & button {
     margin: 2vmin;
-    box-shadow: 0px 6px 6px 0px #301a6b;
+    box-shadow: 0px 6px 6px 0px #3f238f;
     font-weight: 600;
     font-size: 3vmin;
-    padding: 10px 16px;
+    padding: 1vmin;
     border-radius: 15px;
     cursor: pointer;
-    color: #301a6b;
+    color: #3f238f;
     border: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100%;
     justify-content: space-evenly;
+    &:hover {
+      cursor: pointer;
+      background-color: #3f238f;
+      border: solid 2px;
+      border-color: #fff;
+      transition: all .1s ease-in-out;
+      & span {
+        color: #fff;
+      }
+    }
   }  
   & .roomlist img {
     padding: 1vmin;
  
   }
   & img {
-    height: 8.5vmin;
-    width: 8.5vmin;
+    height: 8vmin;
+    width: 8vmin;
+  }
+  & p{
+    font-size: 3vmin;
   }
 }
 @media (max-width: 1024px) {
@@ -62,7 +85,7 @@
       flex-direction: row;
       margin: 2vmin;
       justify-content: space-around;
-      padding: 2vmin;
+      // padding: 2vmin;
     }
   }
 }

@@ -6,9 +6,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
   display: flex;
 
-  background: linear-gradient(-45deg, #ee7652c3,  #b846ffc1, #5900a7ca, #6e65eab7);
+  background: linear-gradient(-45deg, #7163eec3,  #0a05a990, #5900a7ca, #6e65eab7);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
+  @keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+  }
+  
 }
 body,
 #root,
@@ -27,15 +39,4 @@ body,
  
 }
 
-@keyframes gradient {
-  0% {
-      background-position: 0% 50%;
-  }
-  50% {
-      background-position: 100% 50%;
-  }
-  100% {
-      background-position: 0% 50%;
-  }
-}
 
