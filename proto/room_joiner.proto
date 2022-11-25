@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package towns;
+
+service RoomJoinerService {
+    rpc JoinRoom(JoinRoomRequest) returns(JoinRoomResponse) {}
+}
+
+message JoinRoomRequest {
+    oneof auth_token_checker {
+        string auth_token = 1;
+    }
+    oneof room_id_checker {
+        string room_id = 2;
+    }
+}
+
+enum JoinResponseStatus {
+    SUCCESS = 0;
+    ALREADY_FULL = 1;
+    GAME_ENDED = 2;
+    ROOM_NOT_FOUND = 3;
+    ALREADY_CONNECTED = 4;
+}
+
+message JoinRoomResponse {
+    oneof join_status_checker {
+        JoinResponseStatus join_status = 1;
+    }
+}

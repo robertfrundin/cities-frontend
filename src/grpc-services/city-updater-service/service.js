@@ -10,16 +10,18 @@ const uploadCity = (city, roomId, round) => {
     null
   );
   const request = new UpdateCityRequest();
-  request.setCityName(city);
+  request.setCityName(city.toLowerCase());
   request.setRoomId(roomId);
   request.setTokenRound(round);
   request.setAuthToken(Cookies.get("authToken"));
-  console.log("до коллбэка");
+  console.log(request);
 
   client.updateCity(request, {}, (err, res) => {
-    console.log("inside callback");
-    console.log(res);
-    console.log(err);
+    if (res == null) {
+      console.log(err);
+    } else {
+      console.log(res);
+    }
   });
 };
 export default uploadCity;

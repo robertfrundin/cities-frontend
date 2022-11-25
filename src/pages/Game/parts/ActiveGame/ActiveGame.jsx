@@ -3,7 +3,6 @@ import styles from "./activeGame.module.scss";
 import copyImage from "../../../../assets/copy.svg";
 import uploadCity from "../../../../grpc-services/city-updater-service/service";
 
-
 export const ActiveGame = ({ city, gameId, round }) => {
   const [cityValue, setCityValue] = useState("");
   return (
@@ -13,17 +12,16 @@ export const ActiveGame = ({ city, gameId, round }) => {
       <h1 className={styles.active__city}>{city.value}</h1>
       <input
         className={styles.input}
-        defaultValue={city.lastLetter}
         type="text"
         value={cityValue}
         onChange={(e) => setCityValue(e.target.value)}
       />
       <button
-          className={styles.btn}
-          onClick={() => {
-            uploadCity();
-          }}
-        >
+        className={styles.btn}
+        onClick={() => {
+          uploadCity(cityValue, gameId, round);
+        }}
+      >
         <div className={styles.progressbar}>
           <div
             className={styles.progressColor}

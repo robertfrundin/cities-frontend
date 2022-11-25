@@ -1,7 +1,6 @@
 import Cookies from "js-cookie";
-const { GameInfoService } = require("./game_info_provider_grpc_web_pb");
+import getUserData from "../user-service/service";
 const { GetGameInfoRequest } = require("./game_info_provider_pb");
-const { getGameInfo } = require("./game_info_provider_pb");
 const {
   GameInfoProviderServiceClient,
 } = require("./game_info_provider_grpc_web_pb");
@@ -10,13 +9,15 @@ let client = new GameInfoProviderServiceClient(
   null,
   null
 );
-function connectToGameStream(gameId, setPlayers, setCity, setRound) {
-  let request = new GetGameInfoRequest();
+function connectToGameStream(gameId) {
   let token = Cookies.get("authToken");
+
+  let request = new GetGameInfoRequest();
   request.setAuthToken(token);
+
   request.setRoomId(gameId);
   let stream = client.getGameInfo(request, {});
 
-  return stream
+  return stream;
 }
 export default connectToGameStream;
