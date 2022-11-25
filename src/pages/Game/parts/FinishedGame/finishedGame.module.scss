@@ -3,7 +3,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  // align-items: center;
 }
 
 .finish__result {
@@ -22,15 +22,6 @@
     height: 20vmin;
   }
 }
-
-// .randomgame {
-//   background: url("../../../../assets/randomroomicon.svg") no-repeat;
-// }
-
-// .roomlist {
-//   background: url("../../../../assets/roomsicon.svg") no-repeat;
-// }
-
 
 .finish__buttons {
   border-radius: 0px 0px 15px 0px;
@@ -78,14 +69,30 @@
   }
 }
 @media (max-width: 1024px) {
+  .finish__result {
+    height: 50%;
+  }
   .finish__buttons  {
     flex-direction: column;
-    width: 80%;
+    height: 30%;
+    margin: 10vmin auto;
     & button {
       flex-direction: row;
       margin: 2vmin;
+      width: 40vmin;
       justify-content: space-around;
-      // padding: 2vmin;
     }
   }
 }
+// @media (orientation: portrait) {
+//   .finish__result {
+//     height: 50%;
+//   }
+//   .finish__buttons  {
+//     flex-direction: column;
+//     height: 20%;
+//     margin: 0 auto;
+    
+//   }
+
+// }

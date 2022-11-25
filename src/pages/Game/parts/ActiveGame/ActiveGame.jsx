@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import styles from "./activeGame.module.scss";
 import copyImage from "../../../../assets/copy.svg";
 import uploadCity from "../../../../grpc-services/city-updater-service/service";
-export const ActiveGame = ({ city, gameId, round }) => {
 
+
+export const ActiveGame = ({ city, gameId, round }) => {
   const [cityValue, setCityValue] = useState("");
   return (
     <div className={styles.active__game}>
-      <button className={styles.close}></button>
       <h2>Текущее слово:</h2>
 
       <h1 className={styles.active__city}>{city.value}</h1>

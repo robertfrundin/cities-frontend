@@ -90,6 +90,38 @@
   .authBlock{
     display: inline-flex;
     justify-content: space-between;
-    width: 80%;
+   
   }
+}
+@media (orientation: portrait) {
+  .authBlock{
+    display: flex;
+
+    height: unset;
+  }
+  .avatar{
+    max-width: 55vmin;
+  }
+  .username{
+    margin: 0;
+  }
+  .guest, .login {
+    height: 15vmin;
+  }
+  .content {
+    margin: 10%;
+    width: 100%;
+
+  }
+  .button{ 
+    width: 35vmin;
+    height: 15vmin;
+    & span {
+      font-size: 6vmin;
+    }
+  }
+  .changeLang{
+    display: none;
+  }
+  
 }

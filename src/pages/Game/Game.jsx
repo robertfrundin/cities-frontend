@@ -9,15 +9,18 @@ import Cookies from "js-cookie";
 import { upload } from "@testing-library/user-event/dist/upload";
 import { StartedGame } from "./parts/StartedGame/StartedGame";
 import { FinishedGame } from "./parts/FinishedGame/FinishedGame"
+import { useNavigate } from "react-router-dom";
 
 export const Game = () => {
   const [city, setCity] = useState({});
   const [round, setRound] = useState(0);
   const [players, setPlayers] = useState([]);
   const gameId = window.location.pathname.slice(6);
+  const navigate = useNavigate();
   useEffect(() => {
     const stream=connectToGameStream(gameId, setPlayers, setCity, setRound);
     console.log('useEffect',stream)
+    
     stream.on("data", (response) => {
       const players = [];
   
@@ -58,9 +61,16 @@ export const Game = () => {
           </ul>
         </div>
         <div className={styles.board}>
-
+        <button 
+          className={styles.close}
+          onClick={() => {
+            navigate('/');
+          }}
+        ></button>
+          {/* <StartedGame></StartedGame> */}
+           {/* <ActiveGame city={city} gameId={gameId} round={round} /> */}
           <FinishedGame></FinishedGame>
-          {/* <ActiveGame city={city} gameId={gameId} round={round} /> */}
+         
 
         </div>
       </main>

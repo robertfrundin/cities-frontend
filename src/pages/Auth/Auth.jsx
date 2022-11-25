@@ -37,15 +37,18 @@ export const Auth = () => {
               text={"ИГРАТЬ"}
               type="play"
               size="medium"
+              className={styles.button}
             >
               {" "}
             </Button>
-            <ChangeLang />
+            <ChangeLang className={styles.changeLang}/>
             <Button 
               handlerClick={toRoomsList} 
               text={"КОМНАТЫ"} 
               type="rooms" 
-              size="medium"> 
+              size="medium" 
+              className={styles.button}
+              >
             </Button>
           </div>
           {/* <div className = {styles.scrollingImage}></div> */}

@@ -80,35 +80,6 @@
     height: 5vmin;
   }
 }
-.close {
-  border: 0;
-  position: relative;
-  right: -9vmin;
-  background: 0;
-  font-size: 36px;
-  cursor: pointer;
-  background: transparent !important;
-}
-.close::after {
-  height: 4px;
-  width: 5vmin;
-  content: '';
-  position: absolute;
-  background: #000;
-  right: 3px;
-  transform: rotate(-45deg);
-  border-radius: 15px;
-}
-.close::before {
-  right: 3px;
-  height: 4px;
-  width: 5vmin;
-  content: '';
-  position: absolute;
-  background: #000;
-  transform: rotate(45deg);
-  border-radius: 15px;
-}
 
 .progressbar {
   position: relative;
