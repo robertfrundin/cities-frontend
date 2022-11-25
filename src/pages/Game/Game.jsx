@@ -9,6 +9,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import getUserData from "../../grpc-services/user-service/service";
 import joinRoomByLink from "../../grpc-services/room-joiner-service/service";
+import Cookies from "js-cookie";
 
 export const Game = () => {
   const [status, setStatus] = useState(0);
@@ -39,6 +40,8 @@ export const Game = () => {
               }
               return 0;
             });
+          let myPlayer = preparedPlayers.find((x)=>x.name===Cookies.get('userName'));
+          myPlayer.me=true
           setPlayers(preparedPlayers);
           const city = response.getCurrentCity();
           const lastLetter = response.getRequiredLetter();
@@ -65,6 +68,7 @@ export const Game = () => {
       });
   }, []);
   return (
+    
     <div className={styles.wrap}>
       <main className={styles.content}>
         <div className={styles.players}>
@@ -74,8 +78,7 @@ export const Game = () => {
               .map((player) => (
                 <Player
                   key={player.name}
-                  name={player.name}
-                  score={player.score}
+                  player={player}
                 />
               ))}
           </ul>
