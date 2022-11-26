@@ -37,8 +37,10 @@ export const Game = () => {
         const preparedPlayers = maybePlayers.map((player) => ({
           name: player.getUserName(),
           score: player.getUserScore(),
+          id:player.getUserId()
         }));
         setPlayers(preparedPlayers);
+        console.log(preparedPlayers)
         const cityFromServer = response.getCurrentCity();
         const lastLetter = response.getRequiredLetter();
         const round = response.getRound();

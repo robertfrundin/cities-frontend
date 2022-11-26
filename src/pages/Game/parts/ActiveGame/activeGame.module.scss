@@ -59,6 +59,11 @@
     color: #ee6a6a;
   }
 }
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
 .copy {
   position: relative;
   bottom: -20vmin;
