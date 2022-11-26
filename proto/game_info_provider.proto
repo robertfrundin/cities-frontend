@@ -1,6 +1,13 @@
+
 syntax = "proto3";
 
 package towns;
+
+enum GameStage {
+    NOT_STARTED = 0;
+    IN_PROGRESS = 1;
+    ENDED = 2;
+}
 
 service GameInfoProviderService {
     rpc GetGameInfo(GetGameInfoRequest) returns(stream GetGameInfoResponse) {}
@@ -13,12 +20,6 @@ message GetGameInfoRequest {
     oneof room_id_checker {
         string room_id = 2;
     }
-}
-
-enum GameStage {
-    NOT_STARTED = 0;
-    IN_PROGRESS = 1;
-    ENDED = 2;
 }
 
 message PlayerInfo {
@@ -48,4 +49,7 @@ message GetGameInfoResponse {
         int32 round = 4;
     }
     repeated PlayerInfo players_info = 5;
+    oneof duration_checker{
+        int32 duration = 6;
+    }
 }
