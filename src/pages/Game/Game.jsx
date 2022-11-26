@@ -8,9 +8,11 @@ import connectToGameStream from "../../grpc-services/game-info-service/service";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import joinRoomByLink from "../../grpc-services/room-joiner-service/service";
+
 import getAuthToken from "../../grpc-services/token-service/service";
 import getNickName from "../../grpc-services/nickname-service/service";
 import Cookies from "js-cookie";
+
 export const Game = () => {
   const [status, setStatus] = useState(0);
   const [city, setCity] = useState({});
@@ -85,11 +87,7 @@ export const Game = () => {
             {players
               .sort((a, b) => a.score - b.score)
               .map((player) => (
-                <Player
-                  key={player.name}
-                  name={player.name}
-                  score={player.score}
-                />
+                <Player key={player.name} player={player} />
               ))}
           </ul>
         </div>
