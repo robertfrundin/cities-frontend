@@ -30,18 +30,17 @@ export const ActiveGame = ({ city, gameId, round }) => {
             uploadCity(cityValue, gameId, round).then((status) => {
               switch (status) {
                 case 0: {
-                  alert("молодец");
+               
                   setInputColor("green__animated");
                   break;
                 }
                 case 1: {
-                  alert("города нет в базе");
                   setInputColor("yellow__animated");
                   break;
                 }
                 case 2: {
                   setInputColor("red__animated");
-                  alert("город уже был назван");
+           
                   break;
                 }
               }
