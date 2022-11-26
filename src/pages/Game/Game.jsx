@@ -109,7 +109,7 @@ export const Game = () => {
             }}
           ></button>
 
-          {status === 0 && <StartedGame />}
+          {status === 0 && <StartedGame gameId={gameId} />}
           {status === 1 && (
             <ActiveGame
               duration={duration}

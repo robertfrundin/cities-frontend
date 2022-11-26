@@ -19,7 +19,7 @@ export const ActiveGame = ({ duration, city, gameId, roomId, round }) => {
   }
   const [progressPercent, setProgressPercent] = useState(100);
   const decreaseSpeed = useMemo(() => 100 / duration, [duration]);
-  const gameIdShort = useMemo(()=> ( "#"+ gameId.substring((gameId.length-8), gameId.length)), [gameId])
+  const gameIdShort = useMemo(()=> ( "#"+  gameId.substring(8, 0)), [gameId])
 
 
   useEffect(() => {

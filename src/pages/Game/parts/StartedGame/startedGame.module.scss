@@ -57,3 +57,20 @@ h3 {
     transform: rotate(1turn);
   }
 }
+
+.copy {
+  position: relative;
+  bottom: -20vmin;
+  cursor: pointer;
+  & span {
+    font-size: 5vmin;
+    font-weight: 500;
+    color: #000;
+    position: relative;
+    top: -1vmin;
+    left: 5px;
+  }
+  & img {
+    height: 5vmin;
+  }
+}
