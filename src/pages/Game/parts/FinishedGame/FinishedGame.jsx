@@ -1,5 +1,5 @@
 import styles from "./finishedGame.module.scss";
-import zebra from "../../../../assets/zebra.svg";
+// import zebra from "../../../../assets/zebra.svg";
 import randombutton from "../../../../assets/randomroomicon.svg";
 import roomslist from "../../../../assets/roomsicon.svg";
 // import restartbutton from '../../../../assets/restart2.svg'
@@ -22,7 +22,7 @@ export const FinishedGame = () => {
     <div className={styles.game__finished}>
       <div className={styles.finish__result}>
         <h3>ИГРА ОКОНЧЕНА</h3>
-        <img className={styles.winner__image} src={zebra} alt="" />
+        <img className={styles.winner__image} src={`/src/assets/avatars/${Math.floor(Math.random() * 5)}.svg`} alt="" />
         <div className={styles.winner__info}>
           <h3>ПОБЕДИТЕЛЬ:</h3>
           <h3>don_nagibon_2012</h3>

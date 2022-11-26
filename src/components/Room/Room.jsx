@@ -1,5 +1,5 @@
 import styles from "./room.module.scss";
-import avatarSample1 from "../../assets/hippopotamus-svgrepo-com.svg";
+// import avatarSample1 from "../../assets/hippopotamus-svgrepo-com.svg";
 import playerLogo from "../../assets/userlogo.svg";
 import flagIcon from "../../assets/Flag_of_Russia.svg.webp";
 import { useNavigate } from "react-router-dom";
@@ -26,7 +26,7 @@ export const Room = ({
 }
 
   isOpen = true;
-  roomLogo = avatarSample1;
+  roomLogo = `/src/assets/avatars/${Math.floor(Math.random() * 5)}.svg`;
   language = flagIcon;
 
   if (playerCount === roomSize) {

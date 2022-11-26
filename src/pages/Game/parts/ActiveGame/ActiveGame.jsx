@@ -19,6 +19,7 @@ export const ActiveGame = ({ city, gameId, round }) => {
       <button
         type = 'submit'
         className={styles.btn}
+        onKeyPress={this.handleKeyPress}
         onClick={() => {
           uploadCity(cityValue, gameId, round);
           setCityValue('');

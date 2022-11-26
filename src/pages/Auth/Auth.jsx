@@ -1,6 +1,6 @@
 import { Button } from "../../components/Button/Button";
 import { ChangeLang } from "../../components/ChangeLang/ChangeLang";
-import AuthPhoto from "../../assets/hippopotamus-svgrepo-com.svg";
+import ava0 from "../../assets/avatars/0.svg" ;
 import styles from "./auth.module.scss";
 
 import getAuthToken from "../../grpc-services/token-service/service";
@@ -11,6 +11,8 @@ import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
 export const Auth = () => {
+  
+
   const [nickName, setNickName] = useState(Cookies.get("userName"));
   useEffect(() => {
     if (Cookies.get("authToken") === undefined) {
@@ -51,7 +53,7 @@ export const Auth = () => {
 
           <div className={styles.guestform}>
             <div className={styles.username}>Привет, {nickName}!</div>
-            <img alt="Avatar" className={styles.avatar} src={AuthPhoto} />
+            <img alt="Avatar" className={styles.avatar} src={ava0} />
           </div>
           {/* <div className={styles.loginform}>
                 <input className = {styles.input}></input>
