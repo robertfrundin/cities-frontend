@@ -1,10 +1,8 @@
 import styles from "./room.module.scss";
-import avatarSample1 from "../../assets/hippopotamus-svgrepo-com.svg";
+import avatar from "../../assets/avatars/4.svg";
 import playerLogo from "../../assets/userlogo.svg";
 import flagIcon from "../../assets/Flag_of_Russia.svg.webp";
 import { useNavigate } from "react-router-dom";
-
-// import avatarSample2 from '../../assets/stork-svgrepo-com.svg'
 
 export const Room = ({
   type,
@@ -24,9 +22,7 @@ export const Room = ({
         return str;
     }
 }
-
   isOpen = true;
-  roomLogo = avatarSample1;
   language = flagIcon;
 
   if (playerCount === roomSize) {
@@ -38,7 +34,7 @@ export const Room = ({
   };
   return (
     <div className={styles.room}>
-      <img alt="Avatar" className={styles.avatar} src={roomLogo} />
+      <img alt="Avatar" className={styles.avatar} src={avatar} />
       <div className={styles.roomId}>{ellipsify(roomId)}</div>
       <div className={styles.roomInfo}>
         <div className={isOpen ? styles.playerInfo : styles.playerInfoFull}>

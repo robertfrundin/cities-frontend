@@ -32,10 +32,11 @@
     text-transform: capitalize;
     height: 10vmin;
     border-radius: 3px;
-
     font-size: 8vmin;
     animation: blink 3s linear infinite;
 
+
+    overflow: hidden;
     @keyframes blink {
       0% {
         border: 2px dashed #ccc;
@@ -49,13 +50,7 @@
     }
     
   }
-  // & button {
-  //   width: 100px;
-  //   height: 100px;
-  //   background: violet;
-
-  // }
-  
+ 
   & input:focus {
     border: 3px solid black;
   }
@@ -92,7 +87,6 @@
 .progressPercent {
   font-weight: 600;
   font-size: 4vw;
-  // animation: blink 3s linear infinite;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -131,3 +125,45 @@
     1px 2px 1px #000000, -2px -1px 1px #000000, 2px -1px 1px #000000, -2px 1px 1px #000000, 2px 1px 1px #000000, -2px -2px 1px #000000, 2px -2px 1px #000000, -2px 2px 1px #000000, 2px 2px 1px #000000, -2px -2px 1px #000000, 2px -2px 1px #000000,
     -2px 2px 1px #000000, 2px 2px 1px #000000;
 }
+.red__animated{
+  animation: redblink 2s linear ;
+}
+.green__animated{
+  animation: greenblink 2s linear
+}
+.yellow__animated{
+  animation: yellowblink 2s linear
+}
+
+@keyframes greenblink {
+  0% {
+    border: 2px dashed green;
+  }
+  50% {
+    border: 3px dashed #005200;
+  }
+  100% {
+    border: 2px dashed darkgreen;
+  }
+}
+@keyframes yellowblink {
+  0% {
+    border: 2px dashed yellow;
+  }
+  50% {
+    border: 2px dashed #ffc400;
+  }
+  100% {
+    border: 2px dashed orange;
+  }
+} @keyframes redblink {
+    0% {
+      border: 2px dashed #ff0000;
+    }
+    50% {
+      border: 2px dashed darkred;
+    }
+    100% {
+      border: 2px dashed indianred;
+    }
+  }

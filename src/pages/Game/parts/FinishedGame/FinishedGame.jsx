@@ -1,5 +1,5 @@
 import styles from "./finishedGame.module.scss";
-import zebra from "../../../../assets/zebra.svg";
+import zebra from "../../../../assets/avatars/4.svg";
 import randombutton from "../../../../assets/randomroomicon.svg";
 import roomslist from "../../../../assets/roomsicon.svg";
 // import restartbutton from '../../../../assets/restart2.svg'
@@ -8,7 +8,7 @@ import getRandomRoom from "../../../../grpc-services/random-joiner-service/servi
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../../../components/Button/Button";
 
-export const FinishedGame = () => {
+export const FinishedGame = ({ winner }) => {
   const navigate = useNavigate();
 
   async function joinRandomRoom() {
@@ -25,7 +25,7 @@ export const FinishedGame = () => {
         <img className={styles.winner__image} src={zebra} alt="" />
         <div className={styles.winner__info}>
           <h3>ПОБЕДИТЕЛЬ:</h3>
-          <h3>don_nagibon_2012</h3>
+          <h3>{winner}</h3>
         </div>
       </div>
       <div className={styles.finish__buttons}>

@@ -20,9 +20,16 @@ export const Game = () => {
   const [players, setPlayers] = useState([]);
   const [gameId, setGameId] = useState(window.location.pathname.slice(6));
   const navigate = useNavigate();
+  const [closeStreamFunction, setCloseStreamFunction] = useState();
   useEffect(() => {
     const getGameStream = () => {
       const stream = connectToGameStream(gameId);
+      function closeStream() {
+        return () => {
+          stream.cancel();
+        };
+      }
+      setCloseStreamFunction(closeStream);
       stream.on("data", (response) => {
         const maybePlayers = response.getPlayersInfoList();
         console.log(maybePlayers);
@@ -38,19 +45,16 @@ export const Game = () => {
 
         setRound(round);
         setCity({ name: cityFromServer, lastLetter });
-
         const gameStatus = response.getGameStage();
         console.log(gameStatus);
         setStatus(gameStatus);
       });
       stream.on("status", (status) => {
         console.log(status.code + " status code");
-        console.log(status + "status в стриме");
+        console.log(status);
       });
-      stream.on("end", (end) => {
+      stream.on("end", () => {
         console.log("end");
-
-        console.log(end + "конец стрима");
       });
     };
     const currentToken = Cookies.get("authToken");
@@ -78,7 +82,7 @@ export const Game = () => {
             .then(() => getGameStream())
         );
     }
-  }, []);
+  }, [gameId]);
   return (
     <div className={styles.wrap + " animated"}>
       <main className={styles.content}>
@@ -96,6 +100,7 @@ export const Game = () => {
           <button
             className={styles.close}
             onClick={() => {
+              closeStreamFunction();
               navigate("/");
             }}
           ></button>
@@ -104,7 +109,11 @@ export const Game = () => {
           {status === 1 && (
             <ActiveGame city={city.name} gameId={gameId} round={round} />
           )}
-          {status === 2 && <FinishedGame />}
+          {status === 2 && (
+            <FinishedGame
+              winner={players.sort((a, b) => b.score - a.score)[0].name}
+            />
+          )}
         </div>
       </main>
     </div>
