@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
 export const Auth = () => {
-  const [authPage, setPage] = useState(true);
+  const [authPage, setPage] = useState(false);
   // const [count, setCount] = useState(999);
   // <DescendantA authPage={authPage} onCountChange={setPage} />
   // <DescendantB authPage={authPage} onCountChange={setPage} />
@@ -53,14 +53,10 @@ export const Auth = () => {
             <button className={styles.guest}> ГОСТЬ </button>
             <button className={styles.login}> ВОЙТИ </button>
           </div>
-          <div className={styles.guestform} style={{ display: "none" }}>
+          <div className={styles.guestform}>
             <div className={styles.username}>Привет, {nickName}!</div>
             <img alt="Avatar" className={styles.avatar} src={avatar} />
           </div>
-          {/* <div className={styles.loginform}>
-                <input className = {styles.input} placeholder="Введите логин"></input>
-                <input className = {styles.input} placeholder="Введите пароль"></input>
-            </div> */}
 
           <div className={styles.authBlock}>
             <Button

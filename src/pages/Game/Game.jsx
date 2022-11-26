@@ -33,12 +33,22 @@ export const Game = () => {
       setCloseStreamFunction(closeStream);
       stream.on("data", (response) => {
         const maybePlayers = response.getPlayersInfoList();
-        console.log(maybePlayers);
 
-        const preparedPlayers = maybePlayers.map((player) => ({
-          name: player.getUserName(),
-          score: player.getUserScore(),
-        }));
+        const preparedPlayers = maybePlayers
+          .map((player) => ({
+            name: player.getUserName(),
+            score: player.getUserScore(),
+          }))
+          .sort((a, b) => {
+            if (a.score > b.score) {
+              return 1;
+            } else if (a.score < b.score) {
+              return -1;
+            }
+
+            return 0;
+          });
+        console.log(preparedPlayers);
         setPlayers(preparedPlayers);
         const cityFromServer = response.getCurrentCity();
         const lastLetter = response.getRequiredLetter();
@@ -48,6 +58,7 @@ export const Game = () => {
         setCity({ name: cityFromServer, lastLetter });
         const gameStatus = response.getGameStage();
         console.log(gameStatus + " game status");
+        console.log(response.getDuration());
         setDuration(response.getDuration());
         setStatus(gameStatus);
       });
@@ -93,8 +104,8 @@ export const Game = () => {
             {/*<Player key={""} name={""} score={""} />*/}
             {players
               .sort((a, b) => a.score - b.score)
-              .map((player) => (
-                <Player key={player.name} player={player} />
+              .map((player, idx) => (
+                <Player key={idx} player={player} />
               ))}
           </ul>
         </div>

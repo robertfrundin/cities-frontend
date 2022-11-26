@@ -1,22 +1,33 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
-
+import React, { useEffect, useMemo, useState } from "react";
 import styles from "./activeGame.module.scss";
 import copyImage from "../../../../assets/copy.svg";
 import uploadCity from "../../../../grpc-services/city-updater-service/service";
+
 export const ActiveGame = ({ duration, city, gameId, round }) => {
   const [cityValue, setCityValue] = useState("");
   const [inputColor, setInputColor] = useState("");
-  const [progressPercent, setProgressPercent] = useState(100);
+  const [currentPercent, setCurrentPercent] = useState();
   const decreaseSpeed = useMemo(() => 100 / duration, [duration]);
-
   useEffect(() => {
-    console.log(duration + " duration");
-    console.log(decreaseSpeed + "decreaseSpeed");
-    setTimeout(() => {
-      setProgressPercent(progressPercent - decreaseSpeed);
-      console.log(progressPercent);
+    window.localStorage.setItem("timer", "100");
+    console.log("1");
+
+    const newIntervalId = setInterval(() => {
+      const timerFromCookie = window.localStorage.getItem("timer");
+      window.localStorage.setItem(
+        "timer",
+        Number(timerFromCookie) - decreaseSpeed
+      );
+      setCurrentPercent(window.localStorage.getItem("timer"));
+      console.log("a");
+      console.log(window.localStorage.getItem("timer"));
     }, 1000);
-  });
+
+    return () => {
+      clearInterval(newIntervalId);
+      window.localStorage.removeItem("timer");
+    };
+  }, [city]);
 
   return (
     <div className={styles.active__game}>
@@ -55,12 +66,11 @@ export const ActiveGame = ({ duration, city, gameId, round }) => {
       >
         <div className={styles.progressbar}>
           <div
+            id="progress"
             className={styles.progressColor}
             style={{
               height: `100%`,
-
-              width: `${progressPercent}%`,
-
+              width: `${currentPercent}%`,
               transition: "width 1s linear",
             }}
           ></div>
