@@ -54,14 +54,14 @@ export const Auth = () => {
             <button className={styles.guest}> ГОСТЬ </button>
             <button className={styles.login}> ВОЙТИ </button>
           </div>
-          {/* <div className={styles.guestform} style = {`display:none`}>
+          <div className={styles.guestform} style = {`display:none`}>
             <div className={styles.username}>Привет, {nickName}!</div>
             <img alt="Avatar" className={styles.avatar} src={avatar} />
-          </div> */}
-          <div className={styles.loginform}>
+          </div>
+          {/* <div className={styles.loginform}>
                 <input className = {styles.input} placeholder="Введите логин"></input>
                 <input className = {styles.input} placeholder="Введите пароль"></input>
-            </div>
+            </div> */}
 
           <div className={styles.authBlock}>
             <Button
