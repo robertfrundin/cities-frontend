@@ -11,7 +11,7 @@ export const Rooms = ({ className, handlerClick, roomsCount }) => {
   }, []);
 
   return (
-    <div className={styles.roomsList}>
+    <div className={styles.roomsList + " animated"}>
       <div className={roomstyles.room}>
         <img alt="Avatar" className={roomstyles.avatar} src={roomLogo} />
         <div className={roomstyles.roomId}>Cоздать игру</div>

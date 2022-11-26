@@ -1,14 +1,10 @@
 import Cookies from "js-cookie";
-const { RoomListProviderService } = require("./room_list_provider_grpc_web_pb");
+import { envoyIp } from "../../common/config";
 const { GetRoomListRequest } = require("./room_list_provider_pb");
 const {
   RoomListProviderServiceClient,
 } = require("./room_list_provider_grpc_web_pb");
-let client = new RoomListProviderServiceClient(
-  "http://172.21.132.121:9090",
-  null,
-  null
-);
+let client = new RoomListProviderServiceClient(envoyIp, null, null);
 
 async function getRoomList() {
   const request = new GetRoomListRequest();
