@@ -9,11 +9,12 @@ export const PageNotFound = () => {
     navigate(`/`);
   }
 
+
   return (
     <div className={styles.wrap}>
       <div className={styles.content}>
         <img alt="404" className={styles.avatar} src={logo404} />
-        <p className={styles.description}>Страница не найдена</p>
+        <p className={styles.description}>Страница не найдена или комната недоступна.</p>
         <Button
           className={styles.homebutton}
           handlerClick={toAuth}

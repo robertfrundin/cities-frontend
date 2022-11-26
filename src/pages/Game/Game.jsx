@@ -19,7 +19,7 @@ export const Game = () => {
   const [round, setRound] = useState(0);
   const [players, setPlayers] = useState([]);
   const [gameId, setGameId] = useState(window.location.pathname.slice(6));
-  const [duration, setDuration] = useState(100);
+  const [duration, setDuration] = useState();
   const navigate = useNavigate();
   const [closeStreamFunction, setCloseStreamFunction] = useState();
   useEffect(() => {
@@ -47,9 +47,8 @@ export const Game = () => {
         setRound(round);
         setCity({ name: cityFromServer, lastLetter });
         const gameStatus = response.getGameStage();
-        console.log(gameStatus);
-        console.log(response.getDurationCheckerCase() + "duration checker");
-        console.log(response.getDuration());
+        console.log(gameStatus + " game status");
+        setDuration(response.getDuration());
         setStatus(gameStatus);
       });
       stream.on("status", (status) => {

@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
+
 import styles from "./activeGame.module.scss";
 import copyImage from "../../../../assets/copy.svg";
 import uploadCity from "../../../../grpc-services/city-updater-service/service";
@@ -7,16 +8,14 @@ export const ActiveGame = ({ duration, city, gameId, round }) => {
   const [inputColor, setInputColor] = useState("");
   const [progressPercent, setProgressPercent] = useState(100);
   const decreaseSpeed = useMemo(() => 100 / duration, [duration]);
-  const decreaseTimer = useCallback(
-    () =>
-      setInterval(() => {
-        setProgressPercent(progressPercent - 1);
-        console.log(progressPercent);
-      }, 1000),
-    [decreaseSpeed]
-  );
+
   useEffect(() => {
-    decreaseTimer();
+    console.log(duration + " duration");
+    console.log(decreaseSpeed + "decreaseSpeed");
+    setTimeout(() => {
+      setProgressPercent(progressPercent - decreaseSpeed);
+      console.log(progressPercent);
+    }, 1000);
   });
 
   return (
@@ -59,7 +58,9 @@ export const ActiveGame = ({ duration, city, gameId, round }) => {
             className={styles.progressColor}
             style={{
               height: `100%`,
+
               width: `${progressPercent}%`,
+
               transition: "width 1s linear",
             }}
           ></div>

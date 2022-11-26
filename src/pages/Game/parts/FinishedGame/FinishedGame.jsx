@@ -1,5 +1,5 @@
 import styles from "./finishedGame.module.scss";
-import zebra from "../../../../assets/zebra.svg";
+import zebra from "../../../../assets/avatars/4.svg";
 import randombutton from "../../../../assets/randomroomicon.svg";
 import roomslist from "../../../../assets/roomsicon.svg";
 // import restartbutton from '../../../../assets/restart2.svg'

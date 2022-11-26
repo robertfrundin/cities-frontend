@@ -1,14 +1,11 @@
 import Cookies from "js-cookie";
+import { envoyIp } from "../../common/config";
 import getUserData from "../token-service/service";
 const { GetGameInfoRequest } = require("./game_info_provider_pb");
 const {
   GameInfoProviderServiceClient,
 } = require("./game_info_provider_grpc_web_pb");
-let client = new GameInfoProviderServiceClient(
-  "http://172.21.132.121:9090",
-  null,
-  null
-);
+let client = new GameInfoProviderServiceClient(envoyIp, null, null);
 function connectToGameStream(gameId) {
   let token = Cookies.get("authToken");
 
