@@ -1,10 +1,24 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import styles from "./activeGame.module.scss";
 import copyImage from "../../../../assets/copy.svg";
 import uploadCity from "../../../../grpc-services/city-updater-service/service";
-export const ActiveGame = ({ city, gameId, round }) => {
+export const ActiveGame = ({ duration, city, gameId, round }) => {
   const [cityValue, setCityValue] = useState("");
   const [inputColor, setInputColor] = useState("");
+  const [progressPercent, setProgressPercent] = useState(100);
+  const decreaseSpeed = useMemo(() => 100 / duration, [duration]);
+  const decreaseTimer = useCallback(
+    () =>
+      setInterval(() => {
+        setProgressPercent(progressPercent - 1);
+        console.log(progressPercent);
+      }, 1000),
+    [decreaseSpeed]
+  );
+  useEffect(() => {
+    decreaseTimer();
+  });
+
   return (
     <div className={styles.active__game}>
       <h2>Текущее слово:</h2>
@@ -24,18 +38,15 @@ export const ActiveGame = ({ city, gameId, round }) => {
           uploadCity(cityValue, gameId, round).then((status) => {
             switch (status) {
               case 0: {
-                alert("молодец");
-                setInputColor("green__animated");
+                setInputColor("green");
                 break;
               }
               case 1: {
-                alert("города нет в базе");
-                setInputColor("yellow__animated");
+                setInputColor("red");
                 break;
               }
               case 2: {
-                setInputColor("red__animated");
-                alert("город уже был назван");
+                setInputColor("yellow");
                 break;
               }
             }
@@ -48,7 +59,7 @@ export const ActiveGame = ({ city, gameId, round }) => {
             className={styles.progressColor}
             style={{
               height: `100%`,
-              width: `100%`,
+              width: `${progressPercent}%`,
               transition: "width 1s linear",
             }}
           ></div>

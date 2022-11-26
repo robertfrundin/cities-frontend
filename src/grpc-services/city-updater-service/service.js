@@ -18,7 +18,7 @@ const uploadCity = async (city, roomId, round) => {
         console.log(err);
         reject(err);
       } else {
-        const statusFromServer = res.getStatusCheckerCase();
+        const statusFromServer = res.getStatus();
         console.log(statusFromServer + " word update status");
         resolve(statusFromServer);
       }
