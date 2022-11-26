@@ -3,8 +3,8 @@ import styles from "./activeGame.module.scss";
 import copyImage from "../../../../assets/copy.svg";
 import uploadCity from "../../../../grpc-services/city-updater-service/service";
 
-export const ActiveGame = ({ duration, city, gameId, round }) => {
-  const [cityValue, setCityValue] = useState("");
+export const ActiveGame = ({ duration, city, gameId, round, lastLetter }) => {
+  const [cityValue, setCityValue] = useState(lastLetter);
   const [inputColor, setInputColor] = useState("");
   const [currentPercent, setCurrentPercent] = useState();
   const decreaseSpeed = useMemo(() => 100 / duration, [duration]);
@@ -25,6 +25,7 @@ export const ActiveGame = ({ duration, city, gameId, round }) => {
   };
 
   useEffect(() => {
+    setCityValue(lastLetter);
     window.localStorage.setItem("timer", "100");
     console.log("1");
 

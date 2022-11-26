@@ -127,6 +127,7 @@ export const Game = () => {
               city={city.name}
               gameId={gameId}
               round={round}
+              lastLetter={city.lastLetter}
             />
           )}
           {status === 2 && (
