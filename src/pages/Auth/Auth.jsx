@@ -11,11 +11,6 @@ import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
 export const Auth = () => {
-  const [authPage, setPage] = useState(false);
-  // const [count, setCount] = useState(999);
-  // <DescendantA authPage={authPage} onCountChange={setPage} />
-  // <DescendantB authPage={authPage} onCountChange={setPage} />
-
   const [nickName, setNickName] = useState(Cookies.get("userName"));
   useEffect(() => {
     if (Cookies.get("authToken") === undefined) {

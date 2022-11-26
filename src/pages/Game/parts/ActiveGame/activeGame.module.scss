@@ -34,7 +34,7 @@
     border-radius: 3px;
     font-size: 8vmin;
     animation: blink 3s linear infinite;
-
+    margin: 5vmin 0;
 
     overflow: hidden;
     @keyframes blink {
@@ -58,6 +58,11 @@
   .red__letter {
     color: #ee6a6a;
   }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
 }
 .copy {
   position: relative;
@@ -134,3 +139,8 @@
 .green{
   border: 3px solid green !important;
 }
+
+// .copyButton {
+//   background: none;
+
+// }

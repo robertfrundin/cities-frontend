@@ -49,7 +49,9 @@ export const Game = () => {
             return 0;
           });
         console.log(preparedPlayers);
+
         setPlayers(preparedPlayers);
+        console.log(preparedPlayers);
         const cityFromServer = response.getCurrentCity();
         const lastLetter = response.getRequiredLetter();
         const round = response.getRound();
@@ -118,7 +120,7 @@ export const Game = () => {
             }}
           ></button>
 
-          {status === 0 && <StartedGame />}
+          {status === 0 && <StartedGame gameId={gameId} />}
           {status === 1 && (
             <ActiveGame
               duration={duration}
