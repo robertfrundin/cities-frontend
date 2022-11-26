@@ -1,5 +1,5 @@
 import Cookies from "js-cookie";
-import getUserData from "../user-service/service";
+import getUserData from "../token-service/service";
 const { GetGameInfoRequest } = require("./game_info_provider_pb");
 const {
   GameInfoProviderServiceClient,

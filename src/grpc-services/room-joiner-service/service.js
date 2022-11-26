@@ -1,12 +1,9 @@
 import Cookies from "js-cookie";
+import { envoyIp } from "../../common/config";
 const { JoinRoomRequest } = require("./room_joiner_pb");
 const { RoomJoinerServiceClient } = require("./room_joiner_grpc_web_pb");
 
-const client = new RoomJoinerServiceClient(
-  "http://172.21.132.121:9090",
-  null,
-  null
-);
+const client = new RoomJoinerServiceClient(envoyIp, null, null);
 async function joinRoomByLink(link) {
   const request = new JoinRoomRequest();
   const token = Cookies.get("authToken");
@@ -17,7 +14,12 @@ async function joinRoomByLink(link) {
       if (err) {
         reject(err);
       } else {
-        resolve(res.getJoinStatus());
+        const status = res.getJoinStatus();
+        if (status === 0 || status === 4) {
+          resolve(status);
+        } else {
+          reject(status);
+        }
       }
     });
   });

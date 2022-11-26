@@ -1,14 +1,11 @@
 import Cookies from "js-cookie";
+import { envoyIp } from "../../common/config";
 const { UpdateCityRequest } = require("./city_updater_pb");
 
 const { CityUpdaterServiceClient } = require("./city_updater_grpc_web_pb");
 
 const uploadCity = (city, roomId, round) => {
-  let client = new CityUpdaterServiceClient(
-    "http://172.21.132.121:9090",
-    null,
-    null
-  );
+  let client = new CityUpdaterServiceClient(envoyIp, null, null);
   const request = new UpdateCityRequest();
   request.setCityName(city.toLowerCase());
   request.setRoomId(roomId);
@@ -20,7 +17,7 @@ const uploadCity = (city, roomId, round) => {
     if (res == null) {
       console.log(err);
     } else {
-      console.log(res);
+      console.log(res.getStatusCheckerCase() + " word update status");
     }
   });
 };

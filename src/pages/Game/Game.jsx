@@ -7,8 +7,10 @@ import { useCallback, useEffect } from "react";
 import connectToGameStream from "../../grpc-services/game-info-service/service";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import getUserData from "../../grpc-services/user-service/service";
 import joinRoomByLink from "../../grpc-services/room-joiner-service/service";
+
+import getAuthToken from "../../grpc-services/token-service/service";
+import getNickName from "../../grpc-services/nickname-service/service";
 import Cookies from "js-cookie";
 
 export const Game = () => {
@@ -17,83 +19,89 @@ export const Game = () => {
   const [round, setRound] = useState(0);
   const [players, setPlayers] = useState([]);
   const [gameId, setGameId] = useState(window.location.pathname.slice(6));
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   useEffect(() => {
-    getUserData()
-      .then(() => joinRoomByLink(gameId))
-      .then((stat) => console.log(stat + " gameJoin status"))
-      .then(() => {
-        const stream = connectToGameStream(gameId);
-        stream.on("data", (response) => {
-          const maybePlayers = response.getPlayersInfoList();
-          console.log(maybePlayers);
-          const preparedPlayers = maybePlayers
-            .map((player) => ({
-              name: player.getUserName(),
-              score: player.getUserScore(),
-            }))
-            .sort((a, b) => {
-              if (b.score < a.score) {
-                return 1;
-              } else if (b.score > a.score) {
-                return -1;
-              }
-              return 0;
-            });
-          let myPlayer = preparedPlayers.find((x)=>x.name===Cookies.get('userName'));
-          myPlayer.me=true
-          setPlayers(preparedPlayers);
-          const city = response.getCurrentCity();
-          const lastLetter = response.getRequiredLetter();
-          const round = response.getRound();
+    const getGameStream = () => {
+      const stream = connectToGameStream(gameId);
+      stream.on("data", (response) => {
+        const maybePlayers = response.getPlayersInfoList();
+        console.log(maybePlayers);
 
-          setRound(round);
+        const preparedPlayers = maybePlayers.map((player) => ({
+          name: player.getUserName(),
+          score: player.getUserScore(),
+        }));
+        setPlayers(preparedPlayers);
+        const cityFromServer = response.getCurrentCity();
+        const lastLetter = response.getRequiredLetter();
+        const round = response.getRound();
 
-          setCity((prevCity) => ({
-            ...prevCity,
-            value: city,
-            lastLetter,
-          }));
+        setRound(round);
+        setCity({ name: cityFromServer, lastLetter });
 
-          const gameStatus = response.getGameStage();
-          console.log(gameStatus);
-          setStatus(gameStatus);
-        });
-        stream.on("status", (status) => {
-          console.log(status.code + " status code");
-        });
-        stream.on("end", (end) => {
-          console.log("end");
-        });
+        const gameStatus = response.getGameStage();
+        console.log(gameStatus);
+        setStatus(gameStatus);
       });
+      stream.on("status", (status) => {
+        console.log(status.code + " status code");
+        console.log(status + "status в стриме");
+      });
+      stream.on("end", (end) => {
+        console.log("end");
+
+        console.log(end + "конец стрима");
+      });
+    };
+    const currentToken = Cookies.get("authToken");
+    if (currentToken == undefined) {
+      getAuthToken()
+        .then(() => joinRoomByLink(gameId))
+        .then((stat) => console.log(stat + " gameJoin status"))
+        .then(() => getGameStream());
+    } else {
+      getNickName()
+        .then(() => {
+          joinRoomByLink(gameId)
+            .then((stat) => console.log(stat + " gameJoin status"))
+            .then(() => getGameStream())
+            .catch((badStatus) => {
+              console.log("unable to connect, status: " + badStatus);
+              navigate("/404");
+            });
+        })
+        .catch(() =>
+          getAuthToken()
+            .then(() => joinRoomByLink(gameId))
+            .then((stat) => console.log(stat + " gameJoinStatus"))
+            .then(() => getGameStream())
+        );
+    }
   }, []);
   return (
-    
-    <div className={styles.wrap}>
+    <div className={styles.wrap + " animated"}>
       <main className={styles.content}>
         <div className={styles.players}>
           <ul>
+            {/*<Player key={""} name={""} score={""} />*/}
             {players
               .sort((a, b) => a.score - b.score)
               .map((player) => (
-                <Player
-                  key={player.name}
-                  player={player}
-                />
+                <Player key={player.name} player={player} />
               ))}
           </ul>
         </div>
         <div className={styles.board}>
-        <button 
-          className={styles.close}
-          onClick={() => {
-            navigate('/');
-          }}
-        ></button>
+          <button
+            className={styles.close}
+            onClick={() => {
+              navigate("/");
+            }}
+          ></button>
 
           {status == 0 && <StartedGame />}
           {status == 1 && (
-            <ActiveGame city={city} gameId={gameId} round={round} />
+            <ActiveGame city={city.name} gameId={gameId} round={round} />
           )}
           {status == 2 && <FinishedGame />}
         </div>
