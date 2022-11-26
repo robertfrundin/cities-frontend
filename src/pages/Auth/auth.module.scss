@@ -17,6 +17,16 @@
   justify-content: space-between;
 }
 
+.guestform, .loginform  {
+  display: flex;
+  flex-direction: column;
+  height: 55vmin;
+}
+
+.loginform {
+
+}
+
 .selectLogin {
   width: 100%;
 }

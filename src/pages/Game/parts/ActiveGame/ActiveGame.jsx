@@ -17,6 +17,7 @@ export const ActiveGame = ({ city, gameId, round }) => {
         onChange={(e) => setCityValue(e.target.value)}
       />
       <button
+        type = 'submit'
         className={styles.btn}
         onClick={() => {
           uploadCity(cityValue, gameId, round);

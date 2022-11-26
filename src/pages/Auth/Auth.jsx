@@ -32,30 +32,38 @@ export const Auth = () => {
             <button className={styles.guest}> ГОСТЬ </button>
             <button className={styles.login}> ВОЙТИ </button>
           </div>
-          <div className={styles.username}>Привет, {nickName}!</div>
-          <img alt="Avatar" className={styles.avatar} src={AuthPhoto} />
-          {/*<input className = {styles.input}></input>*/}
-          <div className={styles.authBlock}>
-            <Button
-              handlerClick={joinRandomRoom}
-              text={"ИГРАТЬ"}
-              type="play"
-              size="medium"
-              className={styles.button}
-            >
-              {" "}
-            </Button>
-
-            <ChangeLang className={styles.changeLang}/>
-            <Button
-              handlerClick={openRoomsList}
-              text={"КОМНАТЫ"}
-              type="rooms"
-              size="medium"
-              className={styles.button}
-            ></Button>
+          <div className={styles.guestform}>
+            <div className={styles.username}>Привет, {nickName}!</div>
+            <img alt="Avatar" className={styles.avatar} src={AuthPhoto} />
           </div>
-          {/* <div className = {styles.scrollingImage}></div> */}
+            {/* <div className={styles.loginform}>
+                <input className = {styles.input}></input>
+                <input className = {styles.input}></input>
+            </div> */}
+
+            <div className={styles.authBlock}>
+              <Button
+                handlerClick={joinRandomRoom}
+                text={"ИГРАТЬ"}
+                type="play"
+                size="medium"
+                className={styles.button}
+              >
+                {" "}
+              </Button>
+
+              <ChangeLang className={styles.changeLang}/>
+              <Button
+                handlerClick={openRoomsList}
+                text={"КОМНАТЫ"}
+                type="rooms"
+                size="medium"
+                className={styles.button}
+              ></Button>
+          
+          
+            {/* <div className = {styles.scrollingImage}></div> */}
+          </div>
         </main>
       </div>
     </>
