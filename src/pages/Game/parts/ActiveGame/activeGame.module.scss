@@ -34,7 +34,7 @@
     border-radius: 3px;
     font-size: 8vmin;
     animation: blink 3s linear infinite;
-
+    margin: 5vmin 0;
 
     overflow: hidden;
     @keyframes blink {
@@ -130,45 +130,17 @@
     1px 2px 1px #000000, -2px -1px 1px #000000, 2px -1px 1px #000000, -2px 1px 1px #000000, 2px 1px 1px #000000, -2px -2px 1px #000000, 2px -2px 1px #000000, -2px 2px 1px #000000, 2px 2px 1px #000000, -2px -2px 1px #000000, 2px -2px 1px #000000,
     -2px 2px 1px #000000, 2px 2px 1px #000000;
 }
-.red__animated{
-  animation: redblink 2s linear ;
+.red{
+  border: 3px solid red !important;
 }
-.green__animated{
-  animation: greenblink 2s linear
+.yellow{
+  border: 3px solid yellow !important;
 }
-.yellow__animated{
-  animation: yellowblink 2s linear
+.green{
+  border: 3px solid green !important;
 }
 
-@keyframes greenblink {
-  0% {
-    border: 2px dashed green;
-  }
-  50% {
-    border: 3px dashed #005200;
-  }
-  100% {
-    border: 2px dashed darkgreen;
-  }
-}
-@keyframes yellowblink {
-  0% {
-    border: 2px dashed yellow;
-  }
-  50% {
-    border: 2px dashed #ffc400;
-  }
-  100% {
-    border: 2px dashed orange;
-  }
-} @keyframes redblink {
-    0% {
-      border: 2px dashed #ff0000;
-    }
-    50% {
-      border: 2px dashed darkred;
-    }
-    100% {
-      border: 2px dashed indianred;
-    }
-  }
+// .copyButton {
+//   background: none;
+
+// }

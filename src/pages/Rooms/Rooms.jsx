@@ -25,10 +25,10 @@ export const Rooms = ({ className, handlerClick, roomsCount }) => {
       <div className={roomstyles.room}>
         <img alt="Avatar" className={roomstyles.avatar} src={roomLogo} />
         <div className={roomstyles.roomId}>Cоздать игру</div>
-        <Button
+        <button
          className={roomstyles.joinButton}
-          handlerClick={joinRandomRoom}>
-        </Button>
+          onClick={joinRandomRoom}>
+        </button>
       </div>
       {roomList.map((x) => (
         <Room

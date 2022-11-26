@@ -1,6 +1,6 @@
 import { Button } from "../../components/Button/Button";
 import { ChangeLang } from "../../components/ChangeLang/ChangeLang";
-import avatar from "../../assets/avatars/0.svg" ;
+import avatar from "../../assets/avatars/0.svg";
 import styles from "./auth.module.scss";
 
 import getAuthToken from "../../grpc-services/token-service/service";
@@ -11,11 +11,9 @@ import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
 export const Auth = () => {
-  
-  // const [authPage,setPage] = useState(true);
-  // const [count, setCount] = useState(999);
-  // <DescendantA authPage={authPage} onCountChange={setPage} />
-  // <DescendantB authPage={authPage} onCountChange={setPage} />
+
+  const [authPage, setPage] = useState(true);
+
 
   const [nickName, setNickName] = useState(Cookies.get("userName"));
   useEffect(() => {
@@ -55,6 +53,7 @@ export const Auth = () => {
             <button className={styles.login}> ВОЙТИ </button>
           </div>
           <div className={styles.guestform}>
+
             <div className={styles.username}>Привет, {nickName}!</div>
             <img alt="Avatar" className={styles.avatar} src={avatar} />
           </div>

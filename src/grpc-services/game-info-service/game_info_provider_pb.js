@@ -626,7 +626,7 @@ proto.towns.GetGameInfoResponse.repeatedFields_ = [5];
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.towns.GetGameInfoResponse.oneofGroups_ = [[1], [2], [3], [4]];
+proto.towns.GetGameInfoResponse.oneofGroups_ = [[1], [2], [3], [4], [6]];
 
 /**
  * @enum {number}
@@ -711,6 +711,26 @@ proto.towns.GetGameInfoResponse.prototype.getRoundCheckerCase = function () {
   );
 };
 
+/**
+ * @enum {number}
+ */
+proto.towns.GetGameInfoResponse.DurationCheckerCase = {
+  DURATION_CHECKER_NOT_SET: 0,
+  DURATION: 6,
+};
+
+/**
+ * @return {proto.towns.GetGameInfoResponse.DurationCheckerCase}
+ */
+proto.towns.GetGameInfoResponse.prototype.getDurationCheckerCase = function () {
+  return /** @type {proto.towns.GetGameInfoResponse.DurationCheckerCase} */ (
+    jspb.Message.computeOneofCase(
+      this,
+      proto.towns.GetGameInfoResponse.oneofGroups_[4]
+    )
+  );
+};
+
 if (jspb.Message.GENERATE_TO_OBJECT) {
   /**
    * Creates an object representation of this proto suitable for use in Soy templates.
@@ -749,6 +769,7 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
           proto.towns.PlayerInfo.toObject,
           includeInstance
         ),
+        duration: jspb.Message.getFieldWithDefault(msg, 6, 0),
       };
 
     if (includeInstance) {
@@ -813,6 +834,10 @@ proto.towns.GetGameInfoResponse.deserializeBinaryFromReader = function (
         );
         msg.addPlayersInfo(value);
         break;
+      case 6:
+        var value = /** @type {number} */ (reader.readInt32());
+        msg.setDuration(value);
+        break;
       default:
         reader.skipField();
         break;
@@ -866,6 +891,10 @@ proto.towns.GetGameInfoResponse.serializeBinaryToWriter = function (
       f,
       proto.towns.PlayerInfo.serializeBinaryToWriter
     );
+  }
+  f = /** @type {number} */ (jspb.Message.getField(message, 6));
+  if (f != null) {
+    writer.writeInt32(6, f);
   }
 };
 
@@ -1048,6 +1077,41 @@ proto.towns.GetGameInfoResponse.prototype.addPlayersInfo = function (
 
 proto.towns.GetGameInfoResponse.prototype.clearPlayersInfoList = function () {
   this.setPlayersInfoList([]);
+};
+
+/**
+ * optional int32 duration = 6;
+ * @return {number}
+ */
+proto.towns.GetGameInfoResponse.prototype.getDuration = function () {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
+};
+
+/** @param {number} value */
+proto.towns.GetGameInfoResponse.prototype.setDuration = function (value) {
+  jspb.Message.setOneofField(
+    this,
+    6,
+    proto.towns.GetGameInfoResponse.oneofGroups_[4],
+    value
+  );
+};
+
+proto.towns.GetGameInfoResponse.prototype.clearDuration = function () {
+  jspb.Message.setOneofField(
+    this,
+    6,
+    proto.towns.GetGameInfoResponse.oneofGroups_[4],
+    undefined
+  );
+};
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.towns.GetGameInfoResponse.prototype.hasDuration = function () {
+  return jspb.Message.getField(this, 6) != null;
 };
 
 /**

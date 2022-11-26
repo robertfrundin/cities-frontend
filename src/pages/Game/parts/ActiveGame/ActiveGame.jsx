@@ -1,19 +1,43 @@
-import React, { useState, useEffect } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import styles from "./activeGame.module.scss";
 import copyImage from "../../../../assets/copy.svg";
 import uploadCity from "../../../../grpc-services/city-updater-service/service";
-export const ActiveGame = ({ city, gameId, round }) => {
+export const ActiveGame = ({ duration, city, gameId, roomId, round }) => {
   const [cityValue, setCityValue] = useState("");
   const [inputColor, setInputColor] = useState("");
+  const [copied, setCopied] = useState(false);
+
+  function copyTask() { const el = document.createElement('input');
+      el.value = window.location.href;
+      document.body.appendChild(el);
+      el.select(); document.execCommand('copy'); 
+      document.body.removeChild(el); setCopied(true);
+  } 
+
   const onFormSubmit = e => {
     e.preventDefault();
-    // send state to server with e.g. `window.fetch`
   }
+  const [progressPercent, setProgressPercent] = useState(100);
+  const decreaseSpeed = useMemo(() => 100 / duration, [duration]);
+  const gameIdShort = useMemo(()=> ( "#"+ gameId.substring((gameId.length-8), gameId.length)), [gameId])
+
+
+  useEffect(() => {
+    console.log(duration + " duration");
+    console.log(decreaseSpeed + "decreaseSpeed");
+    setTimeout(() => {
+      setProgressPercent(progressPercent - decreaseSpeed);
+      console.log(progressPercent);
+    }, 1000);
+  }
+
+  );
   return (
     <div className={styles.active__game}>
       <h2>Текущее слово:</h2>
 
       <h1 className={styles.active__city}>{city}</h1>
+
       <form onSubmit={onFormSubmit} className= {styles.form}>
         <input
           id="input"
@@ -25,22 +49,19 @@ export const ActiveGame = ({ city, gameId, round }) => {
         <button
           type="submit"
           className={styles.btn}
-        
           onClick={() => {
             uploadCity(cityValue, gameId, round).then((status) => {
               switch (status) {
                 case 0: {
-               
-                  setInputColor("green__animated");
+                  setInputColor("green");
                   break;
                 }
                 case 1: {
-                  setInputColor("yellow__animated");
+                  setInputColor("red");
                   break;
                 }
                 case 2: {
-                  setInputColor("red__animated");
-           
+                  setInputColor("yellow");
                   break;
                 }
               }
@@ -48,14 +69,14 @@ export const ActiveGame = ({ city, gameId, round }) => {
             setCityValue("");
           }}
         >
-        
           <div className={styles.progressbar}>
             <div
               className={styles.progressColor}
               style={{
                 height: `100%`,
-                width: `100%`,
-                // width: `${Math.round(filled * 0.006666667)}%`,
+
+                width: `${progressPercent}%`,
+
                 transition: "width 1s linear",
               }}
             ></div>
@@ -64,8 +85,10 @@ export const ActiveGame = ({ city, gameId, round }) => {
         </button>
       </form>
       <span className={styles.copy}>
-        <img src={copyImage} alt="" />
-        <span>#8fdad7</span>
+        <button onClick={copyTask} style ={{border:0, background: `transparent`, cursor: `pointer`}}>
+          <img src={copyImage} alt="" />
+          <span>{gameIdShort}</span>
+        </button>
       </span>
     </div>
   );
