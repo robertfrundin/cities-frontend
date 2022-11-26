@@ -4,7 +4,7 @@ const { UpdateCityRequest } = require("./city_updater_pb");
 
 const { CityUpdaterServiceClient } = require("./city_updater_grpc_web_pb");
 
-const uploadCity = (city, roomId, round) => {
+const uploadCity = async (city, roomId, round) => {
   let client = new CityUpdaterServiceClient(envoyIp, null, null);
   const request = new UpdateCityRequest();
   request.setCityName(city.toLowerCase());
@@ -12,13 +12,19 @@ const uploadCity = (city, roomId, round) => {
   request.setTokenRound(round);
   request.setAuthToken(Cookies.get("authToken"));
   console.log(request);
-
-  client.updateCity(request, {}, (err, res) => {
-    if (res == null) {
-      console.log(err);
-    } else {
-      console.log(res.getStatusCheckerCase() + " word update status");
-    }
+  const sendToServer = new Promise((resolve, reject) => {
+    client.updateCity(request, {}, (err, res) => {
+      if (res == null) {
+        console.log(err);
+        reject(err);
+      } else {
+        const statusFromServer = res.getStatusCheckerCase();
+        console.log(statusFromServer + " word update status");
+        resolve(statusFromServer);
+      }
+    });
   });
+  const serverResult = await sendToServer;
+  return sendToServer;
 };
 export default uploadCity;

@@ -2,28 +2,46 @@ import React, { useState, useEffect } from "react";
 import styles from "./activeGame.module.scss";
 import copyImage from "../../../../assets/copy.svg";
 import uploadCity from "../../../../grpc-services/city-updater-service/service";
-
 export const ActiveGame = ({ city, gameId, round }) => {
   const [cityValue, setCityValue] = useState("");
+  const [inputColor, setInputColor] = useState("");
   return (
     <div className={styles.active__game}>
       <h2>Текущее слово:</h2>
 
       <h1 className={styles.active__city}>{city}</h1>
       <input
-        className={styles.input}
+        id="input"
+        className={styles.input + " " + styles[inputColor]}
         type="text"
         value={cityValue}
         onChange={(e) => setCityValue(e.target.value)}
       />
       <button
-        type = 'submit'
+        type="submit"
         className={styles.btn}
        
         onClick={() => {
-          uploadCity(cityValue, gameId, round);
-          setCityValue('');
-          
+          uploadCity(cityValue, gameId, round).then((status) => {
+            switch (status) {
+              case 0: {
+                alert("молодец");
+                setInputColor("green__animated");
+                break;
+              }
+              case 1: {
+                alert("города нет в базе");
+                setInputColor("yellow__animated");
+                break;
+              }
+              case 2: {
+                setInputColor("red__animated");
+                alert("город уже был назван");
+                break;
+              }
+            }
+          });
+          setCityValue("");
         }}
       >
         <div className={styles.progressbar}>
