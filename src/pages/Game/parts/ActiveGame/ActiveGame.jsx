@@ -9,7 +9,7 @@ export const ActiveGame = ({ city, gameId, round }) => {
     <div className={styles.active__game}>
       <h2>Текущее слово:</h2>
 
-      <h1 className={styles.active__city}>{city.value}</h1>
+      <h1 className={styles.active__city}>{city}</h1>
       <input
         className={styles.input}
         type="text"
@@ -17,10 +17,12 @@ export const ActiveGame = ({ city, gameId, round }) => {
         onChange={(e) => setCityValue(e.target.value)}
       />
       <button
+        type = 'submit'
         className={styles.btn}
         onClick={() => {
           uploadCity(cityValue, gameId, round);
-          setCityValue('')
+          setCityValue('');
+          
         }}
       >
         <div className={styles.progressbar}>

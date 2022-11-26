@@ -2,10 +2,12 @@
   opacity: 0.85;
   width: 100%;
   // padding: 5vmin;
+
   display: flex;
   justify-content: center;
   height: 100%;
 }
+
 .content {
   max-height: 200vmin;
   margin: auto 20%;
@@ -15,6 +17,16 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+}
+
+.guestform, .loginform  {
+  display: flex;
+  flex-direction: column;
+  height: 55vmin;
+}
+
+.loginform {
+
 }
 
 .selectLogin {
@@ -114,7 +126,7 @@
   }
   .button{ 
     width: 35vmin;
-    height: 15vmin;
+    height: 10vmin;
     & span {
       font-size: 6vmin;
     }

@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package towns;
+
+service UserNameProviderService {
+    rpc GetName(GetNameRequest) returns(GetNameResponse) {}
+}
+
+message GetNameRequest {
+    oneof auth_token_checker {
+        string auth_token = 1;
+    }
+}
+
+message GetNameResponse {
+    oneof user_name_checker {
+        string user_name = 1;
+    }
+}

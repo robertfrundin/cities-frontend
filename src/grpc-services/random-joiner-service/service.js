@@ -1,14 +1,11 @@
 import Cookies from "js-cookie";
+import { envoyIp } from "../../common/config";
 const { RandomJoinerService } = require("./random_joiner_grpc_web_pb");
 const { JoinRandomRoomRequest } = require("./random_joiner_pb");
 const {
   RandomRoomJoinerServiceClient,
 } = require("./random_joiner_grpc_web_pb");
-let client = new RandomRoomJoinerServiceClient(
-  "http://0.0.0.0:9090",
-  null,
-  null
-);
+let client = new RandomRoomJoinerServiceClient(envoyIp, null, null);
 
 async function getRandomRoom() {
   const request = new JoinRandomRoomRequest();
