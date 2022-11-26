@@ -1,1 +1,1 @@
-export const envoyIp = "http://172.21.132.121:9090";
+export const envoyIp = "http://0.0.0.0:9090";
