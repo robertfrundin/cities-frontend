@@ -20,7 +20,8 @@ export const ActiveGame = ({ city, gameId, round }) => {
         className={styles.btn}
         onClick={() => {
           uploadCity(cityValue, gameId, round);
-          setCityValue('')
+          setCityValue('');
+          
         }}
       >
         <div className={styles.progressbar}>
