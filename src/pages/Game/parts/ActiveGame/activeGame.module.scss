@@ -32,10 +32,11 @@
     text-transform: capitalize;
     height: 10vmin;
     border-radius: 3px;
-
     font-size: 8vmin;
     animation: blink 3s linear infinite;
 
+
+    overflow: hidden;
     @keyframes blink {
       0% {
         border: 2px dashed #ccc;
@@ -49,13 +50,7 @@
     }
     
   }
-  // & button {
-  //   width: 100px;
-  //   height: 100px;
-  //   background: violet;
-
-  // }
-  
+ 
   & input:focus {
     border: 3px solid black;
   }
@@ -92,7 +87,6 @@
 .progressPercent {
   font-weight: 600;
   font-size: 4vw;
-  // animation: blink 3s linear infinite;
   position: absolute;
   left: 50%;
   top: 50%;

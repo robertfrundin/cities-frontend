@@ -22,10 +22,11 @@
 .guestform, .loginform  {
   display: flex;
   flex-direction: column;
+  max-height: 80vmin;
 }
 
 .loginform {
-
+ 
 }
 
 .selectLogin {
@@ -40,11 +41,12 @@
   margin: 3vmin;
 }
 .input {
-  max-width: 373px;
   height: 60px;
   padding: 10px;
   border-radius: 15px;
   font-size: 24px;
+  
+  margin: 5vmin;
 }
 .guest, .login {
   cursor:pointer;

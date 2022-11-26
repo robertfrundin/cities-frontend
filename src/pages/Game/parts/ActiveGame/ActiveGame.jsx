@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./activeGame.module.scss";
 import copyImage from "../../../../assets/copy.svg";
 import uploadCity from "../../../../grpc-services/city-updater-service/service";
@@ -19,7 +19,7 @@ export const ActiveGame = ({ city, gameId, round }) => {
       <button
         type = 'submit'
         className={styles.btn}
-        onKeyPress={this.handleKeyPress}
+       
         onClick={() => {
           uploadCity(cityValue, gameId, round);
           setCityValue('');
@@ -32,6 +32,7 @@ export const ActiveGame = ({ city, gameId, round }) => {
             style={{
               height: `100%`,
               width: `100%`,
+              // width: `${Math.round(filled * 0.006666667)}%`,
               transition: "width 1s linear",
             }}
           ></div>

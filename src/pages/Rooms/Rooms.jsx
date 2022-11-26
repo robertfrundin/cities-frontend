@@ -1,6 +1,6 @@
 import styles from "./rooms.module.scss";
 import roomstyles from "../../components/Room/room.module.scss";
-// import roomLogo from "../../assets/hippopotamus-svgrepo-com.svg";
+import roomLogo from "../../assets/avatars/3.svg";
 import { Room } from "../../components/Room/Room";
 import getRoomList from "../../grpc-services/room-list-service/service";
 import { useEffect, useState } from "react";
@@ -23,7 +23,7 @@ export const Rooms = ({ className, handlerClick, roomsCount }) => {
   return (
     <div className={styles.roomsList + " animated"}>
       <div className={roomstyles.room}>
-        <img alt="Avatar" className={roomstyles.avatar} src={`/src/assets/avatars/${Math.floor(Math.random() * 5)}.svg`} />
+        <img alt="Avatar" className={roomstyles.avatar} src={roomLogo} />
         <div className={roomstyles.roomId}>Cоздать игру</div>
         <Button
          className={roomstyles.joinButton}
