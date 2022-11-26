@@ -2,7 +2,7 @@ import { Button } from "../../components/Button/Button";
 import { ChangeLang } from "../../components/ChangeLang/ChangeLang";
 import AuthPhoto from "../../assets/hippopotamus-svgrepo-com.svg";
 import styles from "./auth.module.scss";
-import { Link } from "react-router-dom";
+
 import getAuthToken from "../../grpc-services/token-service/service";
 import getRandomRoom from "../../grpc-services/random-joiner-service/service";
 import getNickName from "../../grpc-services/nickname-service/service";
@@ -13,7 +13,7 @@ import Cookies from "js-cookie";
 export const Auth = () => {
   const [nickName, setNickName] = useState(Cookies.get("userName"));
   useEffect(() => {
-    if (Cookies.get("authToken") == undefined) {
+    if (Cookies.get("authToken") === undefined) {
       getAuthToken().then((nick) => {
         console.log(nick + " nick in getAuthToken");
         setNickName(nick);
@@ -53,32 +53,31 @@ export const Auth = () => {
             <div className={styles.username}>Привет, {nickName}!</div>
             <img alt="Avatar" className={styles.avatar} src={AuthPhoto} />
           </div>
-            {/* <div className={styles.loginform}>
+          {/* <div className={styles.loginform}>
                 <input className = {styles.input}></input>
                 <input className = {styles.input}></input>
             </div> */}
 
-            <div className={styles.authBlock}>
-              <Button
-                handlerClick={joinRandomRoom}
-                text={"ИГРАТЬ"}
-                type="play"
-                size="medium"
-                className={styles.button}
-              >
-                {" "}
-              </Button>
+          <div className={styles.authBlock}>
+            <Button
+              handlerClick={joinRandomRoom}
+              text={"ИГРАТЬ"}
+              type="play"
+              size="medium"
+              className={styles.button}
+            >
+              {" "}
+            </Button>
 
-              <ChangeLang className={styles.changeLang}/>
-              <Button
-                handlerClick={openRoomsList}
-                text={"КОМНАТЫ"}
-                type="rooms"
-                size="medium"
-                className={styles.button}
-              ></Button>
-          
-          
+            <ChangeLang className={styles.changeLang} />
+            <Button
+              handlerClick={openRoomsList}
+              text={"КОМНАТЫ"}
+              type="rooms"
+              size="medium"
+              className={styles.button}
+            ></Button>
+
             {/* <div className = {styles.scrollingImage}></div> */}
           </div>
         </main>

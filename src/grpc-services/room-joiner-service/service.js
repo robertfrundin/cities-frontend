@@ -5,6 +5,7 @@ const { RoomJoinerServiceClient } = require("./room_joiner_grpc_web_pb");
 
 const client = new RoomJoinerServiceClient(envoyIp, null, null);
 async function joinRoomByLink(link) {
+  console.log(link);
   const request = new JoinRoomRequest();
   const token = Cookies.get("authToken");
   request.setAuthToken(token);

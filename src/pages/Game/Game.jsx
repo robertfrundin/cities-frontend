@@ -3,7 +3,7 @@ import { Player } from "../../components/Player/Player";
 import { ActiveGame } from "./parts/ActiveGame/ActiveGame";
 import { FinishedGame } from "./parts/FinishedGame/FinishedGame";
 import { StartedGame } from "./parts/StartedGame/StartedGame";
-import { useCallback, useEffect } from "react";
+import { useEffect } from "react";
 import connectToGameStream from "../../grpc-services/game-info-service/service";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -54,7 +54,7 @@ export const Game = () => {
       });
     };
     const currentToken = Cookies.get("authToken");
-    if (currentToken == undefined) {
+    if (currentToken === undefined) {
       getAuthToken()
         .then(() => joinRoomByLink(gameId))
         .then((stat) => console.log(stat + " gameJoin status"))
@@ -66,7 +66,8 @@ export const Game = () => {
             .then((stat) => console.log(stat + " gameJoin status"))
             .then(() => getGameStream())
             .catch((badStatus) => {
-              console.log("unable to connect, status: " + badStatus);
+              console.log("unable to connect, status: ");
+              console.log(badStatus);
               navigate("/404");
             });
         })
@@ -99,11 +100,11 @@ export const Game = () => {
             }}
           ></button>
 
-          {status == 0 && <StartedGame />}
-          {status == 1 && (
+          {status === 0 && <StartedGame />}
+          {status === 1 && (
             <ActiveGame city={city.name} gameId={gameId} round={round} />
           )}
-          {status == 2 && <FinishedGame />}
+          {status === 2 && <FinishedGame />}
         </div>
       </main>
     </div>
