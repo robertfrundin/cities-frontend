@@ -38,6 +38,7 @@ export const Game = () => {
           .map((player) => ({
             name: player.getUserName(),
             score: player.getUserScore(),
+            id: player.getUserId(),
           }))
           .sort((a, b) => {
             if (a.score > b.score) {
@@ -132,6 +133,11 @@ export const Game = () => {
           )}
           {status === 2 && (
             <FinishedGame
+              goToRandom={() => {
+                setStatus(1);
+              }}
+              changeId={setGameId}
+              closeStream={closeStreamFunction}
               winner={players.sort((a, b) => b.score - a.score)[0].name}
             />
           )}

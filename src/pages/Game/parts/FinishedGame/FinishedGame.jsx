@@ -8,12 +8,14 @@ import getRandomRoom from "../../../../grpc-services/random-joiner-service/servi
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../../../components/Button/Button";
 
-export const FinishedGame = ({ winner }) => {
+export const FinishedGame = ({ winner, goToRandom, closeStream, changeId }) => {
   const navigate = useNavigate();
 
   async function joinRandomRoom() {
     const roomId = await getRandomRoom();
+    console.log(roomId + "room Id v randome");
     navigate(`/game/${roomId}`);
+    return roomId;
   }
   async function toRoomsList() {
     navigate(`/rooms`);
@@ -33,7 +35,13 @@ export const FinishedGame = ({ winner }) => {
           img
           alt="random"
           src={randombutton}
-          handlerClick={joinRandomRoom}
+          handlerClick={() => {
+            closeStream();
+            joinRandomRoom().then((x) => {
+              changeId(x);
+              goToRandom();
+            });
+          }}
           className={styles.randomgame}
           text={"Случайная игра"}
           size="medium"
