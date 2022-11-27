@@ -1,5 +1,5 @@
 import styles from "./finishedGame.module.scss";
-import zebra from "../../../../assets/avatars/4.svg";
+import logo from "../../../../assets/avatars/0.svg";
 import randombutton from "../../../../assets/randomroomicon.svg";
 import roomslist from "../../../../assets/roomsicon.svg";
 // import restartbutton from '../../../../assets/restart2.svg'
@@ -24,7 +24,7 @@ export const FinishedGame = ({ winner, goToRandom, closeStream, changeId }) => {
     <div className={styles.game__finished}>
       <div className={styles.finish__result}>
         <h3>ИГРА ОКОНЧЕНА</h3>
-        <img className={styles.winner__image} src={zebra} alt="" />
+        <img className={styles.winner__image} src={logo} alt="" />
         <div className={styles.winner__info}>
           <h3>ПОБЕДИТЕЛЬ:</h3>
           <h3>{winner}</h3>
