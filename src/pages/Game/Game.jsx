@@ -138,7 +138,7 @@ export const Game = () => {
               }}
               changeId={setGameId}
               closeStream={closeStreamFunction}
-              winner={players.sort((a, b) => b.score - a.score)[0].name}
+              winner={players.sort((a, b) => b.score - a.score)[0]}
             />
           )}
         </div>
