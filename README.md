@@ -3,7 +3,7 @@
 Responsive, cross-browser SPA.
 
 - Frontend made with Javascript, React and gRPC-web
-- [Backend](https://git.yandex-academy.ru/school/2022-09/projects/team19/mmo-towns) made with C++, Python, @userver
+- [Backend](https://git.yandex-academy.ru/school/2022-09/projects/team19/mmo-towns) made with C++, Python, **[@userver](https://github.com/userver-framework)**
 
 
 ## About this game
