@@ -1,10 +1,74 @@
-# Getting Started with Create React App
+# MMO Game Cities
+## What is that?
+Responsive, cross-browser SPA.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Frontend made with Javascript, React and gRPC-web
+- [Backend](https://git.yandex-academy.ru/school/2022-09/projects/team19/mmo-towns) made with C++, Python, userver.
 
-## Available Scripts
 
-In the project directory, you can run:
+## About this game
+
+Welcome to word chain geography multiplayer online quiz game.
+User mission is to name as many cities as possible. Who's the fastest guesser?
+
+!!!!СЮДА ВИДОС ИЛИ ГИФКУ
+
+## Features:
+- Large word database: over 5,000 cities
+- Customize your gaming experience with unique nickname and avatar
+- Multiplayer game with random parties or compete against your friends using join room link
+- Easy to step-in, hard to win
+
+ !!!!СЮДА ВИДОС ИЛИ ГИФКУ
+
+## User journey map:
+
+### Registration
+  - User can register or login by email.
+  - User can login without registration. 
+    In this case, he gets random nickname and avatar
+
+### Starting game
+  There are two options two start playing:
+  - Clicking **PLAY** button (**ИГРАТЬ**)
+  - Clicking **ROOMS** button (**КОМНАТЫ**) to choose exact room to start the game
+#### PLAY button
+  In this case, user joins random room from list. Avaliable random room fits two criterias:
+  - It has empty slot for our user.
+  - The game is not started or finished yet.
+  
+  !!!!СЮДА ВИДОС ИЛИ ГИФКУ
+  
+ *As an option, we can set and allow our user to join in-progress games with avaliable slots.*
+ 
+ #### ROOM button
+ Clicking on this button directs user to avaliable rooms list
+ 
+ !!!!СЮДА ВИДОС ИЛИ ГИФКУ
+  
+
+
+
+• N developers registrates on the server
+• Server drops a random city
+• All players try to send next city name based on last character of previous city
+• Cities are compared with the list of cities in the database
+• If there is no such city - answer is not accepted and the user gets no score, game timer is running
+• Every city can be used only once during the game. In aonther case, answer is not accepted and the user gets no score, game timer is running
+• If there is a city, then the one who first named the city gets score. Game timer sets to default 30 seconds.
+• The game ends when no one offers a new city within 30 seconds
+• The winner is the user with high score Who will throw more cities - wins.
+
+
+
+
+
+## How it works
+
+
+
+Very Fun! Game for everybody!
+
 
 ### `npm start`
 
