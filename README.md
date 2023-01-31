@@ -3,22 +3,13 @@
 Responsive, cross-browser SPA.
 
 - Frontend made with Javascript, React and gRPC-web
-- [Backend](https://git.yandex-academy.ru/school/2022-09/projects/team19/mmo-towns) made with C++, Python, userver.
+- [Backend](https://git.yandex-academy.ru/school/2022-09/projects/team19/mmo-towns) made with C++, Python, @userver
 
 
 ## About this game
 
 Welcome to word chain geography multiplayer online quiz game.
 User mission is to name as many cities as possible. Who's the fastest guesser?
-
-## Features:
-- Large word database: over 5,000 cities
-- Customize your gaming experience with unique nickname and avatar
-- Multiplayer game with random parties or compete against your friends using join room link
-- Easy to step-in, hard to win
-
-
-<img alt="GIF" src="readme/Invite.gif" />
 
 ## User journey map:
 
@@ -28,7 +19,7 @@ User mission is to name as many cities as possible. Who's the fastest guesser?
     In this case, he gets random nickname and avatar
 
 ### Starting game
-  There are two options two start playing:
+  There are two options to start playing:
   - Clicking **PLAY** button (**ИГРАТЬ**)
   - Clicking **ROOMS** button (**КОМНАТЫ**) to choose exact room to start the game
 
@@ -36,7 +27,7 @@ User mission is to name as many cities as possible. Who's the fastest guesser?
 
 <img alt="GIF" src="readme/Start.gif" />
 
-  In this case, user joins random room from list. Avaliable random room fits two criterias:
+  In this case, user joins random room from the list. Avaliable random room fits two criterias:
   - It has empty slot for our user.
   - The game is not started or finished yet.
   
@@ -49,9 +40,8 @@ User mission is to name as many cities as possible. Who's the fastest guesser?
  
  Clicking on this button directs user to avaliable rooms list page.
  Here are two options:
- - User can join one of avaliable rooms which can vary number fo players and game language
- - User can create his own room. Number of players and lalnguage is set by default.  *As an option, user can set with his own settings (In progress)* 
- !!!!СЮДА ВИДОС ИЛИ ГИФКУ.
+ - User can join one of avaliable rooms which can vary number of players and game language
+ - User can create his own room. Number of players and language is set by default.  *As an option, user can set his own settings (In progress)* 
  
   
 ### Game in-progress
@@ -65,7 +55,7 @@ User mission is to name as many cities as possible. Who's the fastest guesser?
 - Cities are compared with the list of cities in the database
 - If there is no such city - answer is not accepted and the user gets no score, game timer is running
 - Every city can be used only once during the game. In another case, answer is not accepted and the user gets no score, game timer is running
-- If there is a city, the first user named the city gets score. Game timer rool back to 30 seconds.
+- If there is a city, the first user named the city gets score. Game timer rolls back to 30 seconds.
 
 ### Game is finished
 
@@ -75,9 +65,17 @@ User mission is to name as many cities as possible. Who's the fastest guesser?
 
 - The game ends when no one offers a new city within 30 seconds
 *As an option, we can set endgame as one of users gets the exact score.*
-- The winner is the user with high score.
+- The winner is the user with the highest score.
 - From this point, user can join random room again or he can switch to the rooms list.
 
+
+## Features:
+- Large word database: over 5,000 cities
+- Customize your gaming experience with unique nickname and avatar
+- Easy to step-in, hard to win
+- Multiplayer game with random parties or compete against your friends using join room link
+
+<img alt="GIF" src="readme/Invite.gif" />
 
 ## How it works
 
@@ -102,8 +100,6 @@ To solve this problem, we used envoy.
 - Game stats
 - Ranked Games
 
-
-Very Fun! Game for everybody!
 
 ## How to run
 
