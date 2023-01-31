@@ -19,7 +19,8 @@ User mission is to name as many cities as possible. Who's the fastest guesser?
 - Multiplayer game with random parties or compete against your friends using join room link
 - Easy to step-in, hard to win
 
- !!!!СЮДА ВИДОС ИЛИ ГИФКУ
+
+<img alt="GIF" src="readme/Invite.gif" />
 
 ## User journey map:
 
@@ -32,16 +33,22 @@ User mission is to name as many cities as possible. Who's the fastest guesser?
   There are two options two start playing:
   - Clicking **PLAY** button (**ИГРАТЬ**)
   - Clicking **ROOMS** button (**КОМНАТЫ**) to choose exact room to start the game
+
 #### PLAY button
+
+<img " alt="GIF" src="readme/Start.gif" />
+
   In this case, user joins random room from list. Avaliable random room fits two criterias:
   - It has empty slot for our user.
   - The game is not started or finished yet.
   
-  !!!!СЮДА ВИДОС ИЛИ ГИФКУ
-  
  *As an option, we can set and allow our user to join in-progress games with avaliable slots.*
  
  #### ROOM button
+ 
+ <img  alt="GIF" src="readme/Rooms.gif" />
+ <br>
+ 
  Clicking on this button directs user to avaliable rooms list page.
  Here are two options:
  - User can join one of avaliable rooms which can vary number fo players and game language
@@ -50,6 +57,11 @@ User mission is to name as many cities as possible. Who's the fastest guesser?
  
   
 ### Game in-progress
+
+
+<img alt="GIF" src="readme/Game.gif" />
+<br>
+
 - After game slots are filled, server starts game and drops a random city
 - All players try to send next city name based on last character of previous city
 - Cities are compared with the list of cities in the database
@@ -58,6 +70,11 @@ User mission is to name as many cities as possible. Who's the fastest guesser?
 - If there is a city, the first user named the city gets score. Game timer rool back to 30 seconds.
 
 ### Game is finished
+
+
+<img alt="GIF" src="readme/Finish.gif" />
+<br>
+
 - The game ends when no one offers a new city within 30 seconds
 *As an option, we can set endgame as one of users gets the exact score.*
 - The winner is the user with high score.
@@ -66,9 +83,19 @@ User mission is to name as many cities as possible. Who's the fastest guesser?
 
 ## How it works
 
+Under the hood we have an issue: when anyone changes changes the city, we need to share that information with each player.
+<img alt="ROUTE" src="readme/Cityupd.png" />
+In case if using REST, it turns to a very expensive decision - polling, which will update information by a concrete interval we set.
+Using grpc, we share this information immediately by stream, which shares information instantly.
+The user sends new city, backend scores it up and share updayed information about city, score and timer with each user.
+
+But the browser will be unable to get backend, so we needed a solution, that should convert http2 requests into GRPC and then send it to backend.
+To solve this problem, we used envoy.
+
+<img alt="envoy" src="readme/envoy.jpg" />
 
 
-## ToDo:
+### ToDo:
 
 - Multi-language support
 - Advanced room customization
