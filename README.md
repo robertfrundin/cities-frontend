@@ -42,93 +42,50 @@ User mission is to name as many cities as possible. Who's the fastest guesser?
  *As an option, we can set and allow our user to join in-progress games with avaliable slots.*
  
  #### ROOM button
- Clicking on this button directs user to avaliable rooms list
+ Clicking on this button directs user to avaliable rooms list page.
+ Here are two options:
+ - User can join one of avaliable rooms which can vary number fo players and game language
+ - User can create his own room. Number of players and lalnguage is set by default.  *As an option, user can set with his own settings (In progress)* 
+ !!!!СЮДА ВИДОС ИЛИ ГИФКУ.
  
- !!!!СЮДА ВИДОС ИЛИ ГИФКУ
   
+### Game in-progress
+- After game slots are filled, server starts game and drops a random city
+- All players try to send next city name based on last character of previous city
+- Cities are compared with the list of cities in the database
+- If there is no such city - answer is not accepted and the user gets no score, game timer is running
+- Every city can be used only once during the game. In another case, answer is not accepted and the user gets no score, game timer is running
+- If there is a city, the first user named the city gets score. Game timer rool back to 30 seconds.
 
-
-
-• N developers registrates on the server
-• Server drops a random city
-• All players try to send next city name based on last character of previous city
-• Cities are compared with the list of cities in the database
-• If there is no such city - answer is not accepted and the user gets no score, game timer is running
-• Every city can be used only once during the game. In aonther case, answer is not accepted and the user gets no score, game timer is running
-• If there is a city, then the one who first named the city gets score. Game timer sets to default 30 seconds.
-• The game ends when no one offers a new city within 30 seconds
-• The winner is the user with high score Who will throw more cities - wins.
-
-
-
+### Game is finished
+- The game ends when no one offers a new city within 30 seconds
+*As an option, we can set endgame as one of users gets the exact score.*
+- The winner is the user with high score.
+- From this point, user can join random room again or he can switch to the rooms list.
 
 
 ## How it works
 
 
 
+## ToDo:
+
+- Multi-language support
+- Advanced room customization
+- Integrated game chat
+- Game history
+- Game stats
+- Ranked Games
+
+
 Very Fun! Game for everybody!
 
+## How to run
 
-### `npm start`
+Unfortunately, backend is still under NDA and has not been officially revealed to open-source yet, stay tune for updates, it will be deplyed here soon.
 
-Runs the app in the development mode.\
+Frontend can be launched by `npm start`.
+
+It runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
