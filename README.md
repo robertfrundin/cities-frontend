@@ -11,8 +11,6 @@ Responsive, cross-browser SPA.
 Welcome to word chain geography multiplayer online quiz game.
 User mission is to name as many cities as possible. Who's the fastest guesser?
 
-!!!!СЮДА ВИДОС ИЛИ ГИФКУ
-
 ## Features:
 - Large word database: over 5,000 cities
 - Customize your gaming experience with unique nickname and avatar
@@ -36,7 +34,7 @@ User mission is to name as many cities as possible. Who's the fastest guesser?
 
 #### PLAY button
 
-<img " alt="GIF" src="readme/Start.gif" />
+<img alt="GIF" src="readme/Start.gif" />
 
   In this case, user joins random room from list. Avaliable random room fits two criterias:
   - It has empty slot for our user.
@@ -109,7 +107,7 @@ Very Fun! Game for everybody!
 
 ## How to run
 
-Unfortunately, backend is still under NDA and has not been officially revealed to open-source yet, stay tune for updates, it will be deplyed here soon.
+Unfortunately, [Backend](https://git.yandex-academy.ru/school/2022-09/projects/team19/mmo-towns) is still under NDA and has not been officially revealed to open-source yet, stay tune for updates, it will be deployed here soon.
 
 Frontend can be launched by `npm start`.
 
